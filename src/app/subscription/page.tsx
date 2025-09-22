@@ -123,7 +123,7 @@ function SubscriptionPageContent() {
           <div className="mt-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {plans.map((plan) => (
-                <div key={plan.name} className="md:aspect-auto aspect-[9/16] max-h-[500px] md:max-h-none w-full max-w-md mx-auto md:max-w-none">
+                <div key={plan.name} className="w-full">
                   <Card
                     className={cn(
                       'flex flex-col h-full w-full',
