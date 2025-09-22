@@ -1,11 +1,9 @@
 
-import { Header } from '@/components/header';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Check, Star } from 'lucide-react';
 import { Suspense } from 'react';
 import { Spinner } from '@/components/ui/spinner';
-import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
   Carousel,
