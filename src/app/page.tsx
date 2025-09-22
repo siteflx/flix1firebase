@@ -1,12 +1,23 @@
+"use client";
+
 import { Header } from '@/components/header';
 import { VideoCarousel } from '@/components/video-carousel';
 import { CAROUSEL_CATEGORIES } from '@/lib/placeholder-data';
 import { HeroBanner } from '@/components/hero-banner';
+import { useAuth } from '@/hooks/use-auth.tsx';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
-  // A geração de recomendações foi removida do carregamento da página para melhorar a velocidade.
-  // Isso pode ser reativado em uma interação do lado do cliente, se necessário.
-  
+  const { user, loading } = useAuth();
+
+  if (loading || !user) {
+    return (
+      <div className="flex min-h-screen w-full flex-col items-center justify-center bg-background">
+        <p>Carregando...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="flex min-h-screen w-full flex-col bg-background">
       <Header />
