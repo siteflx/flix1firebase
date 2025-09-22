@@ -24,7 +24,7 @@ export default function RootLayout({
       <head>
         <Script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-ZQ6MCQKWGH"
+          src="https://www.googletagmanager.com/gtag/js?id=G-BBVNGL2BHY"
         />
         <Script id="google-analytics">
           {`
@@ -32,7 +32,7 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'G-ZQ6MCQKWGH');
+            gtag('config', 'G-BBVNGL2BHY');
           `}
         </Script>
         <Script id="security-features">
