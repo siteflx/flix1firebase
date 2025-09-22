@@ -11,6 +11,7 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
+  useSidebar,
 } from '@/components/ui/sidebar';
 import { CAROUSEL_CATEGORIES } from '@/lib/placeholder-data';
 import { cn } from '@/lib/utils';
@@ -19,6 +20,13 @@ export function NavigationSidebar() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentCategory = searchParams.get('category');
+  const { setOpenMobile, isMobile } = useSidebar();
+
+  const handleLinkClick = () => {
+    if (isMobile) {
+      setOpenMobile(false);
+    }
+  };
   
   const isSubscriptionPage = pathname === '/subscription';
   const isAuthPage = pathname === '/login' || pathname === '/signup';
@@ -38,6 +46,8 @@ export function NavigationSidebar() {
            <SidebarMenuItem>
             <Link href="/subscription" passHref legacyBehavior>
               <SidebarMenuButton
+                as="a"
+                onClick={handleLinkClick}
                 isActive={isSubscriptionPage}
                 className={cn('justify-start', {
                     'bg-sidebar-accent text-sidebar-accent-foreground': isSubscriptionPage
@@ -56,6 +66,8 @@ export function NavigationSidebar() {
           <SidebarMenuItem>
             <Link href="/" passHref legacyBehavior>
               <SidebarMenuButton
+                as="a"
+                onClick={handleLinkClick}
                 isActive={!currentCategory && pathname === '/'}
                 className={cn('justify-start', {
                     'bg-sidebar-accent text-sidebar-accent-foreground': !currentCategory && pathname === '/'
@@ -70,6 +82,8 @@ export function NavigationSidebar() {
             <SidebarMenuItem key={category.id}>
               <Link href={`/?category=${category.id}`} passHref legacyBehavior>
                 <SidebarMenuButton
+                  as="a"
+                  onClick={handleLinkClick}
                   isActive={currentCategory === category.id}
                   className={cn('justify-start', {
                     'bg-sidebar-accent text-sidebar-accent-foreground': currentCategory === category.id,
