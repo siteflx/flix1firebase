@@ -1,3 +1,4 @@
+
 // @ts-nocheck
 "use client"
 
@@ -38,6 +39,24 @@ const bannerItems = [
     description: 'Uma história de amor que vai tocar seu coração e ficar na memória.',
     imageUrl: 'https://picsum.photos/seed/hero4/1600/900',
     imageHint: 'romance couple',
+  },
+  {
+    title: 'Horizonte Cibernético',
+    description: 'Em um futuro distópico, um hacker descobre uma verdade que pode derrubar o sistema. Agora, ele é caçado por todos.',
+    imageUrl: 'https://picsum.photos/seed/hero5/1600/900',
+    imageHint: 'cyberpunk city',
+  },
+  {
+    title: 'As Crônicas do Impossível',
+    description: 'A magia foi esquecida, mas uma antiga profecia ressurge. Uma jornada épica para salvar um reino da escuridão eterna.',
+    imageUrl: 'https://picsum.photos/seed/hero6/1600/900',
+    imageHint: 'epic fantasy',
+  },
+  {
+    title: 'Riso Contagioso',
+    description: 'Prepare-se para a comédia do ano. Dois amigos e um plano que tinha tudo para dar errado... e deu.',
+    imageUrl: 'https://picsum.photos/seed/hero7/1600/900',
+    imageHint: 'funny scene',
   },
 ];
 
