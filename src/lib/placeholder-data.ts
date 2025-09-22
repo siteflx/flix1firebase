@@ -1,3 +1,4 @@
+
 export interface Video {
   id: string;
   title: string;
@@ -32,6 +33,20 @@ const newActionThumbnails = [
   'https://storage.googleapis.com/projeto--02/screenshot-20250919225424.png',
 ];
 
+const newComedyThumbnails = [
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919223919.png',
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919223939.png',
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919223957.png',
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919224023.png',
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919224041.png',
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919224058.png',
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919224122.png',
+  'https://storage.googleapis.com/projeto--02/517597625_17966586965924010_6810943734837562840_n.jpg',
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919224041.png',
+  'https://storage.googleapis.com/projeto--02/Screenshot_20250916_225546_Chrome%20(1).jpg',
+];
+
+
 const newActionVideos = [
   'https://videos.meetlove.site/video%201.mp4',
   'https://videos.meetlove.site/video%202.mp4',
@@ -48,18 +63,26 @@ const newActionVideos = [
 const generateVideos = (genre: {id: string, name: string, hint: string}, count: number): Video[] => {
   return Array.from({ length: count }, (_, i) => {
     const videoId = `${genre.id}-${i + 1}`;
-    const isActionGenre = genre.id === 'action';
+    
+    let thumbnailUrl = `https://picsum.photos/seed/${videoId}/270/480`;
+    let videoUrl = `https://picsum.photos/seed/${videoId}/1280/720`;
+
+    if (genre.id === 'action' && i < newActionThumbnails.length) {
+      thumbnailUrl = newActionThumbnails[i];
+      if (i < newActionVideos.length) {
+        videoUrl = newActionVideos[i];
+      }
+    } else if (genre.id === 'comedy' && i < newComedyThumbnails.length) {
+      thumbnailUrl = newComedyThumbnails[i];
+      // Mantém o vídeo de placeholder para comédia por enquanto
+    }
     
     return {
       id: videoId,
       title: `${genre.name} Filme ${i + 1}`,
       description: `Esta é uma descrição de espaço reservado para ${genre.name} Filme ${i + 1}.`,
-      thumbnailUrl: isActionGenre && i < newActionThumbnails.length 
-        ? newActionThumbnails[i] 
-        : `https://picsum.photos/seed/${videoId}/270/480`,
-      videoUrl: isActionGenre && i < newActionVideos.length
-        ? newActionVideos[i]
-        : `https://picsum.photos/seed/${videoId}/1280/720`,
+      thumbnailUrl: thumbnailUrl,
+      videoUrl: videoUrl,
       duration: `${Math.floor(Math.random() * 2) + 1}h ${Math.floor(Math.random() * 60)}m`,
       genre: genre.hint,
     };
