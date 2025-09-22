@@ -46,8 +46,8 @@ export default function ChatPage() {
     setIsTyping(true);
 
     const aiMessageId = Date.now() + 1;
-    const aiMessage: Message = { id: aiMessageId, sender: 'ai', text: '' };
-    setMessages((prev) => [...prev, aiMessage]);
+    // Create an empty message for the AI that will be filled by the stream
+    setMessages((prev) => [...prev, { id: aiMessageId, sender: 'ai', text: '' }]);
 
     try {
       await romanticChat({ message: userInput }, (chunk) => {
@@ -135,7 +135,7 @@ export default function ChatPage() {
                         )}
                         </div>
                     ))}
-                     {isTyping && messages[messages.length -1]?.sender === 'user' && (
+                     {isTyping && messages[messages.length -1]?.sender === 'ai' && messages[messages.length - 1]?.text === '' && (
                         <div className="flex items-end gap-2 justify-start">
                             <Avatar className="h-8 w-8">
                                 <AvatarImage src="https://picsum.photos/seed/aigirl/100/100" data-ai-hint="woman portrait"/>
