@@ -31,8 +31,15 @@ function HomePageContent() {
       <div className="flex-1 overflow-x-hidden">
         {!selectedCategoryId && <HeroBanner />}
         <main className="flex-1 space-y-12 px-4 py-8 md:px-8">
-          {visibleCategories.map((category) => (
-            <VideoCarousel key={category.id} category={category} thumbnailAspectRatio="portrait" />
+          {visibleCategories.map((category, index) => (
+            <div key={category.id}>
+              <VideoCarousel category={category} thumbnailAspectRatio="portrait" />
+              {index === 1 && !selectedCategoryId && (
+                <div className="pt-12">
+                  <HeroBanner />
+                </div>
+              )}
+            </div>
           ))}
         </main>
       </div>
