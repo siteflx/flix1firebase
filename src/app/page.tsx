@@ -8,6 +8,7 @@ import { HeroBanner } from '@/components/hero-banner';
 import { useAuth } from '@/hooks/use-auth.tsx';
 import { Spinner } from '@/components/ui/spinner';
 import { Suspense } from 'react';
+import { PromoBanner } from '@/components/promo-banner';
 
 function HomePageContent() {
   const { user, loading } = useAuth();
@@ -31,12 +32,12 @@ function HomePageContent() {
       <div className="flex-1 overflow-x-hidden">
         {!selectedCategoryId && <HeroBanner />}
         <main className="flex-1 space-y-12 px-4 py-8 md:px-8">
-          {visibleCategories.map((category, index) => (
+          {visibleCategories.map((category) => (
             <div key={category.id}>
               <VideoCarousel category={category} thumbnailAspectRatio="portrait" />
-              {index === 1 && !selectedCategoryId && (
+              {category.id === 'comedy' && !selectedCategoryId && (
                 <div className="pt-12">
-                  <HeroBanner />
+                  <PromoBanner />
                 </div>
               )}
             </div>

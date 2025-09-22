@@ -1,3 +1,4 @@
+
 {
   "placeholderImages": [
     { "id": "action-1-thumb", "imageUrl": "https://picsum.photos/seed/action-1/400/225", "imageHint": "action movie" },
@@ -219,6 +220,7 @@
     { "id": "rec-9-thumb", "imageUrl": "https://picsum.photos/seed/rec-9/400/225", "imageHint": "recommendation" },
     { "id": "rec-9-player", "imageUrl": "https://picsum.photos/seed/rec-9/1280/720", "imageHint": "recommendation" },
     { "id": "rec-10-thumb", "imageUrl": "https://picsum.photos/seed/rec-10/400/225", "imageHint": "recommendation" },
-    { "id": "rec-10-player", "imageUrl": "https://picsum.photos/seed/rec-10/1280/720", "imageHint": "recommendation" }
+    { "id": "rec-10-player", "imageUrl": "https://picsum.photos/seed/rec-10/1280/720", "imageHint": "recommendation" },
+    { "id": "promo-banner", "imageUrl": "https://picsum.photos/seed/promo-banner/1200/300", "imageHint": "movie collection" }
   ]
 }
