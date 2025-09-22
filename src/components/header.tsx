@@ -1,3 +1,5 @@
+"use client";
+
 import { Clapperboard, LogOut, Search, User } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from './ui/button';
