@@ -25,7 +25,7 @@ export default function WatchPage({ params }: { params: { id: string } }) {
           </Button>
         </div>
         <div className="w-full max-w-4xl mx-auto">
-          <div className="aspect-[9/16] w-full overflow-hidden rounded-lg bg-black">
+          <div className="aspect-[9/16] w-full max-w-[340px] mx-auto overflow-hidden rounded-lg bg-black sm:max-w-[400px]">
             <video
               src={video.videoUrl}
               controls

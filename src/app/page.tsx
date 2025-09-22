@@ -1,4 +1,4 @@
-// src/app/page.tsx
+
 "use client";
 
 import { useSearchParams } from 'next/navigation';
@@ -16,16 +16,9 @@ function HomePageContent() {
   const searchParams = useSearchParams();
   const selectedCategoryId = searchParams.get('category');
   
-  const [visibleCategories, setVisibleCategories] = useState<CarouselCategory[]>(CAROUSEL_CATEGORIES);
-
-  useEffect(() => {
-    if (selectedCategoryId) {
-      const selected = CAROUSEL_CATEGORIES.find(cat => cat.id === selectedCategoryId);
-      setVisibleCategories(selected ? [selected] : CAROUSEL_CATEGORIES);
-    } else {
-      setVisibleCategories(CAROUSEL_CATEGORIES);
-    }
-  }, [selectedCategoryId]);
+  const visibleCategories = selectedCategoryId
+    ? CAROUSEL_CATEGORIES.filter(cat => cat.id === selectedCategoryId)
+    : CAROUSEL_CATEGORIES;
 
 
   if (loading || !user) {
