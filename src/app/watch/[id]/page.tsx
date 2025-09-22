@@ -30,6 +30,7 @@ export default function WatchPage({ params }: { params: { id: string } }) {
               src={video.videoUrl}
               controls
               autoPlay
+              controlsList="nodownload"
               className="w-full h-full object-contain"
             />
           </div>

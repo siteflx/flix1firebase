@@ -81,4 +81,10 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  .on-blur {
+    filter: blur(10px);
+    pointer-events: none;
+    user-select: none;
+  }
 }

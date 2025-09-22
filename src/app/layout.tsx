@@ -34,6 +34,17 @@ export default function RootLayout({
             gtag('config', 'G-ZQ6MCQKWGH');
           `}
         </Script>
+        <Script id="security-features">
+          {`
+            document.addEventListener('contextmenu', event => event.preventDefault());
+            window.addEventListener('blur', () => {
+              document.body.classList.add('on-blur');
+            });
+            window.addEventListener('focus', () => {
+              document.body.classList.remove('on-blur');
+            });
+          `}
+        </Script>
       </head>
       <body className={`${inter.variable} font-body antialiased bg-background text-foreground`}>
         <AuthProvider>
