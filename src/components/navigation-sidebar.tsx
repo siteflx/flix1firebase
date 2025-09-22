@@ -45,8 +45,7 @@ export function NavigationSidebar() {
         </SidebarHeader>
         <SidebarMenu>
            <SidebarMenuItem>
-            <Link href="/subscription" passHref legacyBehavior>
-              <a onClick={handleLinkClick} className="w-full">
+            <Link href="/subscription" onClick={handleLinkClick} className="w-full">
                 <SidebarMenuButton
                   as="div"
                   isActive={isSubscriptionPage}
@@ -57,7 +56,6 @@ export function NavigationSidebar() {
                   <Gem />
                   <span>Assinatura</span>
                 </SidebarMenuButton>
-              </a>
             </Link>
           </SidebarMenuItem>
         </SidebarMenu>
@@ -66,8 +64,7 @@ export function NavigationSidebar() {
         </SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <Link href="/" passHref legacyBehavior>
-              <a onClick={handleLinkClick} className="w-full">
+            <Link href="/" onClick={handleLinkClick} className="w-full">
                 <SidebarMenuButton
                   as="div"
                   isActive={!currentCategory && pathname === '/'}
@@ -78,13 +75,11 @@ export function NavigationSidebar() {
                   <Play className="text-primary" />
                   <span>Todas</span>
                 </SidebarMenuButton>
-              </a>
             </Link>
           </SidebarMenuItem>
           {CAROUSEL_CATEGORIES.map((category) => (
             <SidebarMenuItem key={category.id}>
-              <Link href={`/?category=${category.id}`} passHref legacyBehavior>
-                <a onClick={handleLinkClick} className="w-full">
+              <Link href={`/?category=${category.id}`} onClick={handleLinkClick} className="w-full">
                   <SidebarMenuButton
                     as="div"
                     isActive={currentCategory === category.id}
@@ -95,7 +90,6 @@ export function NavigationSidebar() {
                     <Play className="text-primary" />
                     <span>{category.title}</span>
                   </SidebarMenuButton>
-                </a>
               </Link>
             </SidebarMenuItem>
           ))}
