@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { Film, Gem } from 'lucide-react';
+import { Play, Gem } from 'lucide-react';
 import {
   Sidebar,
   SidebarContent,
@@ -61,7 +61,7 @@ export function NavigationSidebar() {
                     'bg-sidebar-accent text-sidebar-accent-foreground': !currentCategory && pathname === '/'
                 })}
               >
-                <Film />
+                <Play className="text-primary" />
                 <span>Todas</span>
               </SidebarMenuButton>
             </Link>
@@ -75,7 +75,7 @@ export function NavigationSidebar() {
                     'bg-sidebar-accent text-sidebar-accent-foreground': currentCategory === category.id,
                   })}
                 >
-                  <Film />
+                  <Play className="text-primary" />
                   <span>{category.title}</span>
                 </SidebarMenuButton>
               </Link>
