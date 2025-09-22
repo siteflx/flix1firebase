@@ -1,5 +1,5 @@
 import { Header } from '@/components/header';
-import { findVideoById, type Video } from '@/lib/placeholder-data';
+import { findVideoById } from '@/lib/placeholder-data';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -13,7 +13,7 @@ export default function WatchPage({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="flex min-h-screen w-full flex-col">
+    <div className="flex-1 flex flex-col">
       <Header />
       <main className="flex-1 p-4 md:p-8">
         <div className="mb-4">

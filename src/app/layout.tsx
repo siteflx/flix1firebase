@@ -6,6 +6,9 @@ import { AuthProvider } from '@/hooks/use-auth.tsx';
 import { SidebarProvider } from '@/components/ui/sidebar';
 import Script from 'next/script';
 import { SearchProvider } from '@/components/search-dialog';
+import { NavigationSidebar } from '@/components/navigation-sidebar';
+import { Suspense } from 'react';
+import { Spinner } from '@/components/ui/spinner';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-body' });
 
@@ -51,7 +54,12 @@ export default function RootLayout({
         <AuthProvider>
           <SearchProvider>
             <SidebarProvider>
-              {children}
+               <Suspense fallback={<div className="flex min-h-screen w-full flex-col items-center justify-center bg-background"><Spinner className="h-10 w-10" /></div>}>
+                <div className="flex min-h-screen w-full">
+                  <NavigationSidebar />
+                  {children}
+                </div>
+              </Suspense>
             </SidebarProvider>
           </SearchProvider>
         </AuthProvider>

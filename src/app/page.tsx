@@ -4,11 +4,9 @@
 import { useSearchParams } from 'next/navigation';
 import { Header } from '@/components/header';
 import { VideoCarousel } from '@/components/video-carousel';
-import { CAROUSEL_CATEGORIES, CarouselCategory } from '@/lib/placeholder-data';
+import { CAROUSEL_CATEGORIES } from '@/lib/placeholder-data';
 import { HeroBanner } from '@/components/hero-banner';
 import { useAuth } from '@/hooks/use-auth.tsx';
-import { NavigationSidebar } from '@/components/navigation-sidebar';
-import { useEffect, useState, Suspense } from 'react';
 import { Spinner } from '@/components/ui/spinner';
 
 function HomePageContent() {
@@ -30,8 +28,6 @@ function HomePageContent() {
   }
 
   return (
-    <div className="flex min-h-screen w-full">
-      <NavigationSidebar />
       <div className="flex-1">
         <Header />
         {!selectedCategoryId && <HeroBanner />}
@@ -41,14 +37,11 @@ function HomePageContent() {
           ))}
         </main>
       </div>
-    </div>
   );
 }
 
 export default function Home() {
   return (
-    <Suspense fallback={<div className="flex min-h-screen w-full flex-col items-center justify-center bg-background"><Spinner className="h-10 w-10" /></div>}>
       <HomePageContent />
-    </Suspense>
   );
 }
