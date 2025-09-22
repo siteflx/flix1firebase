@@ -83,15 +83,22 @@ export const CAROUSEL_CATEGORIES: CarouselCategory[] = genres.map((genre) => ({
 export const ALL_VIDEOS: Video[] = CAROUSEL_CATEGORIES.flatMap(category => category.videos);
 
 export function findVideoById(id: string): Video | undefined {
-  // Check static categories
+  if (!id || typeof id !== 'string') {
+    return undefined;
+  }
+
   const video = ALL_VIDEOS.find((v) => v.id === id);
   if (video) return video;
 
-  // If it's a recommendation, generate a placeholder
+  // Gracefully handle malformed or non-existent recommendation IDs
   if (id.startsWith('rec-')) {
+    const recId = id.split('-')[1];
+    if (!recId || isNaN(parseInt(recId, 10))) {
+        return undefined;
+    }
     return {
       id: id,
-      title: `Recomendado Para Você: Filme ${id.split('-')[1]}`,
+      title: `Recomendado Para Você: Filme ${recId}`,
       description: 'Uma recomendação especial para você, com base no seu histórico de visualização.',
       thumbnailUrl: `https://picsum.photos/seed/${id}/270/480`,
       videoUrl: `https://picsum.photos/seed/${id}/1280/720`,
