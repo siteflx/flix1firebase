@@ -40,6 +40,19 @@ const newActionThumbnails = [
   'https://storage.googleapis.com/projeto--02/screenshot-20250919225424.png',
 ];
 
+const newActionVideos = [
+  'https://videos.meetlove.site/video%201.mp4',
+  'https://videos.meetlove.site/video%202.mp4',
+  'https://videos.meetlove.site/video%203.mp4',
+  'https://videos.meetlove.site/video%204.mp4',
+  'https://videos.meetlove.site/video%205.mp4',
+  'https://videos.meetlove.site/video%206.mp4',
+  'https://videos.meetlove.site/video%207.mp4',
+  'https://videos.meetlove.site/video%208.mp4',
+  'https://videos.meetlove.site/video%209.mp4',
+  'https://videos.meetlove.site/video%2010.mp4',
+];
+
 const generateVideos = (genre: {id: string, name: string, hint: string}, count: number): Video[] => {
   return Array.from({ length: count }, (_, i) => {
     const videoId = `${genre.id}-${i + 1}`;
@@ -52,7 +65,9 @@ const generateVideos = (genre: {id: string, name: string, hint: string}, count: 
       thumbnailUrl: isActionGenre && i < newActionThumbnails.length 
         ? newActionThumbnails[i] 
         : `https://picsum.photos/seed/${videoId}/270/480`,
-      videoUrl: `https://picsum.photos/seed/${videoId}/1280/720`,
+      videoUrl: isActionGenre && i < newActionVideos.length
+        ? newActionVideos[i]
+        : `https://picsum.photos/seed/${videoId}/1280/720`,
       duration: `${Math.floor(Math.random() * 2) + 1}h ${Math.floor(Math.random() * 60)}m`,
       genre: genre.hint,
     };
