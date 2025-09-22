@@ -2,16 +2,24 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { type Video } from '@/lib/placeholder-data';
 import { PlayCircle } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-export function VideoThumbnail({ video }: { video: Video }) {
+interface VideoThumbnailProps {
+  video: Video;
+  aspectRatio: 'portrait' | 'landscape';
+}
+
+export function VideoThumbnail({ video, aspectRatio }: VideoThumbnailProps) {
+  const aspectClass = aspectRatio === 'portrait' ? 'aspect-[9/16]' : 'aspect-video';
+
   return (
     <Link href={`/watch/${video.id}`} className="block group" aria-label={`Watch ${video.title}`}>
-      <div className="relative overflow-hidden rounded-md aspect-[9/16] bg-muted shadow-lg">
+      <div className={cn("relative overflow-hidden rounded-md bg-muted shadow-lg", aspectClass)}>
         <Image
           src={video.thumbnailUrl}
           alt={video.title}
-          width={270}
-          height={480}
+          width={aspectRatio === 'portrait' ? 270 : 400}
+          height={aspectRatio === 'portrait' ? 480 : 225}
           className="object-cover w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-110"
           data-ai-hint={video.genre}
         />

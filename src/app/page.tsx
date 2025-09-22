@@ -2,6 +2,7 @@ import { Header } from '@/components/header';
 import { VideoCarousel } from '@/components/video-carousel';
 import { CAROUSEL_CATEGORIES, type CarouselCategory, type Video } from '@/lib/placeholder-data';
 import { generatePersonalizedRecommendations } from '@/ai/flows/personalized-video-recommendations';
+import { HeroBanner } from '@/components/hero-banner';
 
 export default async function Home() {
   const userViewingHistory = "The Matrix, Inception, Blade Runner 2049, Interstellar, John Wick";
@@ -16,7 +17,7 @@ export default async function Home() {
       id: `rec-${index + 1}`,
       title,
       description: 'A special recommendation for you, based on your viewing history.',
-      thumbnailUrl: `https://picsum.photos/seed/rec${index + 1}/400/225`,
+      thumbnailUrl: `https://picsum.photos/seed/rec${index + 1}/270/480`,
       videoUrl: `https://picsum.photos/seed/rec${index + 1}/1280/720`,
       duration: '1h 55m',
       genre: 'recommendation',
@@ -29,18 +30,27 @@ export default async function Home() {
 
   const recommendationCategory: CarouselCategory = {
     id: 'recommendations',
-    title: 'Recommended for You',
+    title: 'Recomendado para Você',
     videos: recommendations,
   };
   
   const allCategories = recommendations.length > 0 ? [recommendationCategory, ...CAROUSEL_CATEGORIES] : CAROUSEL_CATEGORIES;
+  const firstCategory = allCategories.shift();
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-background">
       <Header />
+      <HeroBanner />
       <main className="flex-1 space-y-12 overflow-x-hidden px-4 py-8 md:px-8">
+        {firstCategory && (
+            <VideoCarousel 
+              key={firstCategory.id} 
+              category={firstCategory} 
+              thumbnailAspectRatio="portrait" 
+            />
+          )}
         {allCategories.map((category) => (
-          <VideoCarousel key={category.id} category={category} />
+          <VideoCarousel key={category.id} category={category} thumbnailAspectRatio="landscape" />
         ))}
       </main>
     </div>

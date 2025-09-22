@@ -15,26 +15,26 @@ export interface CarouselCategory {
 }
 
 const genres = [
-  { id: 'action', name: 'Action & Adventure', hint: 'action movie' },
-  { id: 'comedy', name: 'Comedies', hint: 'comedy movie' },
+  { id: 'action', name: 'Ação e Aventura', hint: 'action movie' },
+  { id: 'comedy', name: 'Comédias', hint: 'comedy movie' },
   { id: 'drama', name: 'Dramas', hint: 'drama movie' },
-  { id: 'scifi', name: 'Sci-Fi & Fantasy', hint: 'sci-fi' },
-  { id: 'horror', name: 'Horror', hint: 'horror movie' },
-  { id: 'thriller', name: 'Thrillers', hint: 'thriller movie' },
-  { id: 'docu', name: 'Documentaries', hint: 'documentary' },
+  { id: 'scifi', name: 'Ficção Científica e Fantasia', hint: 'sci-fi' },
+  { id: 'horror', name: 'Terror', hint: 'horror movie' },
+  { id: 'thriller', name: 'Suspense', hint: 'thriller movie' },
+  { id: 'docu', name: 'Documentários', hint: 'documentary' },
   { id: 'romance', name: 'Romance', hint: 'romance movie' },
-  { id: 'anime', name: 'Anime', hint: 'anime' },
-  { id: 'kids', name: 'Kids & Family', hint: 'kids cartoon' },
+  { id: 'anime', name: 'Animes', hint: 'anime' },
+  { id: 'kids', name: 'Crianças e Família', hint: 'kids cartoon' },
 ];
 
-const generateVideos = (genre: {id: string, name: string, hint: string}, count: number): Video[] => {
+const generateVideos = (genre: {id: string, name: string, hint: string}, count: number, portrait: boolean): Video[] => {
   return Array.from({ length: count }, (_, i) => {
     const videoId = `${genre.id}-${i + 1}`;
     return {
       id: videoId,
-      title: `${genre.name} Movie ${i + 1}`,
-      description: `This is a placeholder description for ${genre.name} Movie ${i + 1}.`,
-      thumbnailUrl: `https://picsum.photos/seed/${videoId}/270/480`,
+      title: `${genre.name} Filme ${i + 1}`,
+      description: `Esta é uma descrição de espaço reservado para ${genre.name} Filme ${i + 1}.`,
+      thumbnailUrl: portrait ? `https://picsum.photos/seed/${videoId}/270/480` : `https://picsum.photos/seed/${videoId}/400/225`,
       videoUrl: `https://picsum.photos/seed/${videoId}/1280/720`,
       duration: `${Math.floor(Math.random() * 2) + 1}h ${Math.floor(Math.random() * 60)}m`,
       genre: genre.hint,
@@ -42,10 +42,11 @@ const generateVideos = (genre: {id: string, name: string, hint: string}, count: 
   });
 };
 
-export const CAROUSEL_CATEGORIES: CarouselCategory[] = genres.map(genre => ({
+export const CAROUSEL_CATEGORIES: CarouselCategory[] = genres.map((genre, index) => ({
   id: genre.id,
   title: genre.name,
-  videos: generateVideos(genre, 10),
+  // Make first category portrait, others landscape
+  videos: generateVideos(genre, 10, false),
 }));
 
 export const ALL_VIDEOS: Video[] = CAROUSEL_CATEGORIES.flatMap(category => category.videos);
@@ -59,8 +60,8 @@ export function findVideoById(id: string): Video | undefined {
   if (id.startsWith('rec-')) {
     return {
       id: id,
-      title: `Recommended For You: Film ${id.split('-')[1]}`,
-      description: 'A special recommendation for you, based on your viewing history.',
+      title: `Recomendado Para Você: Filme ${id.split('-')[1]}`,
+      description: 'Uma recomendação especial para você, com base no seu histórico de visualização.',
       thumbnailUrl: `https://picsum.photos/seed/${id}/270/480`,
       videoUrl: `https://picsum.photos/seed/${id}/1280/720`,
       duration: '1h 55m',
