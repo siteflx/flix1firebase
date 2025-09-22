@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Inter } from 'next/font/google';
 import { AuthProvider } from '@/hooks/use-auth.tsx';
 import { SidebarProvider } from '@/components/ui/sidebar';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-body' });
 
@@ -19,6 +20,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="dark">
+      <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZQ6MCQKWGH"
+        />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-ZQ6MCQKWGH');
+          `}
+        </Script>
+      </head>
       <body className={`${inter.variable} font-body antialiased bg-background text-foreground`}>
         <AuthProvider>
           <SidebarProvider>
