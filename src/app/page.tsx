@@ -9,6 +9,7 @@ import { useAuth } from '@/hooks/use-auth.tsx';
 import { Spinner } from '@/components/ui/spinner';
 import { Suspense } from 'react';
 import { PromoBanner } from '@/components/promo-banner';
+import { TopCreatorsCarousel } from '@/components/top-creators-carousel';
 
 function HomePageContent() {
   const { user, loading } = useAuth();
@@ -36,8 +37,9 @@ function HomePageContent() {
             <div key={category.id}>
               <VideoCarousel category={category} thumbnailAspectRatio="portrait" />
               {category.id === 'comedy' && !selectedCategoryId && (
-                <div className="pt-12">
+                <div className="pt-12 space-y-12">
                   <PromoBanner />
+                  <TopCreatorsCarousel />
                 </div>
               )}
             </div>

@@ -221,6 +221,13 @@
     { "id": "rec-9-player", "imageUrl": "https://picsum.photos/seed/rec-9/1280/720", "imageHint": "recommendation" },
     { "id": "rec-10-thumb", "imageUrl": "https://picsum.photos/seed/rec-10/400/225", "imageHint": "recommendation" },
     { "id": "rec-10-player", "imageUrl": "https://picsum.photos/seed/rec-10/1280/720", "imageHint": "recommendation" },
-    { "id": "promo-banner", "imageUrl": "https://picsum.photos/seed/promo-banner/1200/300", "imageHint": "movie collection" }
+    { "id": "promo-banner", "imageUrl": "https://picsum.photos/seed/promo-banner/1200/300", "imageHint": "movie collection" },
+    { "id": "creator-gaby", "imageUrl": "https://storage.googleapis.com/projeto--02/gaby-lopez.jpg", "imageHint": "woman selfie" },
+    { "id": "creator-loira", "imageUrl": "https://storage.googleapis.com/projeto--02/loiradocorno.jpg", "imageHint": "woman bikini" },
+    { "id": "creator-aline", "imageUrl": "https://storage.googleapis.com/projeto--02/aline-faria.jpg", "imageHint": "woman portrait" },
+    { "id": "creator-carla", "imageUrl": "https://picsum.photos/seed/creator-carla/400/600", "imageHint": "woman beach" },
+    { "id": "creator-bruna", "imageUrl": "https://picsum.photos/seed/creator-bruna/400/600", "imageHint": "woman model" },
+    { "id": "creator-fernanda", "imageUrl": "https://picsum.photos/seed/creator-fernanda/400/600", "imageHint": "woman smiling" },
+    { "id": "creator-juliana", "imageUrl": "https://picsum.photos/seed/creator-juliana/400/600", "imageHint": "woman fashion" }
   ]
 }
