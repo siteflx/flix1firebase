@@ -1,3 +1,4 @@
+
 // src/components/navigation-sidebar.tsx
 "use client";
 
@@ -45,17 +46,18 @@ export function NavigationSidebar() {
         <SidebarMenu>
            <SidebarMenuItem>
             <Link href="/subscription" passHref legacyBehavior>
-              <SidebarMenuButton
-                as="a"
-                onClick={handleLinkClick}
-                isActive={isSubscriptionPage}
-                className={cn('justify-start', {
-                    'bg-sidebar-accent text-sidebar-accent-foreground': isSubscriptionPage
-                })}
-              >
-                <Gem />
-                <span>Assinatura</span>
-              </SidebarMenuButton>
+              <a onClick={handleLinkClick} className="w-full">
+                <SidebarMenuButton
+                  as="div"
+                  isActive={isSubscriptionPage}
+                  className={cn('justify-start w-full', {
+                      'bg-sidebar-accent text-sidebar-accent-foreground': isSubscriptionPage
+                  })}
+                >
+                  <Gem />
+                  <span>Assinatura</span>
+                </SidebarMenuButton>
+              </a>
             </Link>
           </SidebarMenuItem>
         </SidebarMenu>
@@ -65,33 +67,35 @@ export function NavigationSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <Link href="/" passHref legacyBehavior>
-              <SidebarMenuButton
-                as="a"
-                onClick={handleLinkClick}
-                isActive={!currentCategory && pathname === '/'}
-                className={cn('justify-start', {
-                    'bg-sidebar-accent text-sidebar-accent-foreground': !currentCategory && pathname === '/'
-                })}
-              >
-                <Play className="text-primary" />
-                <span>Todas</span>
-              </SidebarMenuButton>
+              <a onClick={handleLinkClick} className="w-full">
+                <SidebarMenuButton
+                  as="div"
+                  isActive={!currentCategory && pathname === '/'}
+                  className={cn('justify-start w-full', {
+                      'bg-sidebar-accent text-sidebar-accent-foreground': !currentCategory && pathname === '/'
+                  })}
+                >
+                  <Play className="text-primary" />
+                  <span>Todas</span>
+                </SidebarMenuButton>
+              </a>
             </Link>
           </SidebarMenuItem>
           {CAROUSEL_CATEGORIES.map((category) => (
             <SidebarMenuItem key={category.id}>
               <Link href={`/?category=${category.id}`} passHref legacyBehavior>
-                <SidebarMenuButton
-                  as="a"
-                  onClick={handleLinkClick}
-                  isActive={currentCategory === category.id}
-                  className={cn('justify-start', {
-                    'bg-sidebar-accent text-sidebar-accent-foreground': currentCategory === category.id,
-                  })}
-                >
-                  <Play className="text-primary" />
-                  <span>{category.title}</span>
-                </SidebarMenuButton>
+                <a onClick={handleLinkClick} className="w-full">
+                  <SidebarMenuButton
+                    as="div"
+                    isActive={currentCategory === category.id}
+                    className={cn('justify-start w-full', {
+                      'bg-sidebar-accent text-sidebar-accent-foreground': currentCategory === category.id,
+                    })}
+                  >
+                    <Play className="text-primary" />
+                    <span>{category.title}</span>
+                  </SidebarMenuButton>
+                </a>
               </Link>
             </SidebarMenuItem>
           ))}
