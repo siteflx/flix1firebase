@@ -17,22 +17,22 @@ import {
 
 const bannerItems = [
   {
-    title: 'Histórias de Amor Inesquecíveis',
-    description: 'Deixe-se levar por romances que atravessam o tempo e o espaço. Emoção em cada cena.',
-    imageUrl: 'https://picsum.photos/seed/love-story/1920/1080',
-    imageHint: 'romance couple',
+    title: 'Novos Olhares, Novas Histórias',
+    description: 'Explore narrativas que capturam a essência de momentos únicos e inesquecíveis.',
+    imageUrl: 'https://storage.googleapis.com/audiossswe/foto%202.png',
+    imageHint: 'woman portrait',
   },
   {
-    title: 'Laços que Unem',
-    description: 'Descubra personagens cativantes e as conexões que definem suas jornadas.',
-    imageUrl: 'https://picsum.photos/seed/character-bond/1920/1080',
-    imageHint: 'dramatic portrait',
+    title: 'A Beleza em Cada Detalhe',
+    description: 'Descubra a arte por trás das câmeras com uma qualidade de imagem que vai te surpreender.',
+    imageUrl: 'https://storage.googleapis.com/audiossswe/foto%202.png',
+    imageHint: 'cinematic scene',
   },
   {
-    title: 'Paixão em Alta Definição',
-    description: 'Sinta cada olhar e cada toque. A mais alta qualidade de imagem para as histórias mais apaixonantes.',
-    imageUrl: 'https://picsum.photos/seed/passion-cinema/1920/1080',
-    imageHint: 'love story',
+    title: 'Uma Janela para Outros Mundos',
+    description: 'Deixe-se levar por histórias que transportam você para novas realidades e emoções.',
+    imageUrl: 'https://storage.googleapis.com/audiossswe/foto%202.png',
+    imageHint: 'dramatic look',
   },
 ];
 
@@ -91,4 +91,3 @@ export function HeroBanner() {
     </div>
   );
 }
-
