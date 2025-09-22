@@ -12,7 +12,7 @@ import { useAuth } from '@/hooks/use-auth.tsx';
 import { Spinner } from '@/components/ui/spinner';
 import { streamAiChat } from '@/ai/flows/ai-chat-flow';
 import { Send, Video } from 'lucide-react';
-import type { FlowRunAction, FlowRunState } from 'genkit/flow';
+import type { Part } from 'genkit';
 
 interface Message {
   id: number;
@@ -54,18 +54,15 @@ export default function ChatPage() {
       const stream = await streamAiChat({ message: userInput });
 
       for await (const chunk of stream) {
-        const action = chunk as FlowRunAction;
-        if (action?.type === 'output') {
-           const output = action.output as any;
-           if (output?.text) {
-              setMessages((prev) =>
-                prev.map((msg) =>
-                  msg.id === aiMessageId
-                    ? { ...msg, text: msg.text + output.text }
-                    : msg
-                )
-              );
-           }
+        const text = (chunk as Part).text
+        if (text) {
+          setMessages((prev) =>
+            prev.map((msg) =>
+              msg.id === aiMessageId
+                ? { ...msg, text: msg.text + text }
+                : msg
+            )
+          );
         }
       }
     } catch (error) {
