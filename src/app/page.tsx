@@ -2,7 +2,6 @@
 "use client";
 
 import { useSearchParams } from 'next/navigation';
-import { Header } from '@/components/header';
 import { VideoCarousel } from '@/components/video-carousel';
 import { CAROUSEL_CATEGORIES } from '@/lib/placeholder-data';
 import { HeroBanner } from '@/components/hero-banner';
@@ -30,7 +29,6 @@ function HomePageContent() {
 
   return (
       <div className="flex-1">
-        <Header />
         {!selectedCategoryId && <HeroBanner />}
         <main className="flex-1 space-y-12 overflow-x-hidden px-4 py-8 md:px-8">
           {visibleCategories.map((category) => (
