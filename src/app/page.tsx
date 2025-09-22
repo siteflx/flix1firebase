@@ -10,6 +10,7 @@ import { Spinner } from '@/components/ui/spinner';
 import { Suspense } from 'react';
 import { PromoBanner } from '@/components/promo-banner';
 import { TopCreatorsCarousel } from '@/components/top-creators-carousel';
+import { FeaturedCreatorsCarousel } from '@/components/featured-creators-carousel';
 
 function HomePageContent() {
   const { user, loading } = useAuth();
@@ -36,6 +37,11 @@ function HomePageContent() {
           {visibleCategories.map((category) => (
             <div key={category.id}>
               <VideoCarousel category={category} thumbnailAspectRatio="portrait" />
+              {category.id === 'action' && !selectedCategoryId && (
+                 <div className="pt-12">
+                   <FeaturedCreatorsCarousel />
+                 </div>
+              )}
               {category.id === 'comedy' && !selectedCategoryId && (
                 <div className="pt-12 space-y-12">
                   <PromoBanner />
