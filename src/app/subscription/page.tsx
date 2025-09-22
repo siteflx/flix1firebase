@@ -113,7 +113,7 @@ function SubscriptionPageContent() {
   return (
     <div className="flex-1">
       <main className="flex-1 p-4 py-8 md:p-8">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-7xl">
           <div className="text-center px-2">
             <h1 className="text-4xl font-bold tracking-tight">Nossos Planos de Assinatura</h1>
             <p className="mt-4 text-lg text-muted-foreground">
@@ -121,9 +121,9 @@ function SubscriptionPageContent() {
             </p>
           </div>
           <div className="mt-12">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex flex-col md:flex-row items-stretch justify-center gap-8">
               {plans.map((plan) => (
-                <div key={plan.name} className="w-full">
+                <div key={plan.name} className="w-full md:w-1/3">
                   <Card
                     className={cn(
                       'flex flex-col h-full w-full',
