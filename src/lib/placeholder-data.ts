@@ -27,14 +27,31 @@ const genres = [
   { id: 'kids', name: 'Crianças e Família', hint: 'kids cartoon' },
 ];
 
+const newActionThumbnails = [
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919222217.png',
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919224041.png',
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919224058.png',
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919224122.png',
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919225148.png',
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919225223.png',
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919225324.png',
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919225438.png',
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919225354.png',
+  'https://storage.googleapis.com/projeto--02/screenshot-20250919225424.png',
+];
+
 const generateVideos = (genre: {id: string, name: string, hint: string}, count: number): Video[] => {
   return Array.from({ length: count }, (_, i) => {
     const videoId = `${genre.id}-${i + 1}`;
+    const isActionGenre = genre.id === 'action';
+    
     return {
       id: videoId,
       title: `${genre.name} Filme ${i + 1}`,
       description: `Esta é uma descrição de espaço reservado para ${genre.name} Filme ${i + 1}.`,
-      thumbnailUrl: `https://picsum.photos/seed/${videoId}/270/480`,
+      thumbnailUrl: isActionGenre && i < newActionThumbnails.length 
+        ? newActionThumbnails[i] 
+        : `https://picsum.photos/seed/${videoId}/270/480`,
       videoUrl: `https://picsum.photos/seed/${videoId}/1280/720`,
       duration: `${Math.floor(Math.random() * 2) + 1}h ${Math.floor(Math.random() * 60)}m`,
       genre: genre.hint,
