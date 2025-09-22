@@ -113,7 +113,6 @@ const testimonials = [
 function SubscriptionPageContent() {
   return (
     <div className="flex-1">
-      <Header />
       <main className="flex-1 p-4 py-8 md:p-8">
         <div className="mx-auto max-w-5xl">
           <div className="text-center px-2">
