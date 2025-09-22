@@ -14,6 +14,7 @@ import { romanticChat } from '@/ai/flows/romantic-chat-flow';
 import { Send, Video } from 'lucide-react';
 
 interface Message {
+  id: number;
   sender: 'user' | 'ai';
   text: string;
 }
@@ -26,7 +27,6 @@ export default function ChatPage() {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Scroll to the bottom when messages change
     if (scrollAreaRef.current) {
         const viewport = scrollAreaRef.current.querySelector('div[data-radix-scroll-area-viewport]');
         if (viewport) {
@@ -37,26 +37,40 @@ export default function ChatPage() {
   
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!input.trim()) return;
+    if (!input.trim() || isTyping) return;
 
-    const userMessage: Message = { sender: 'user', text: input };
+    const userInput = input;
+    const userMessage: Message = { id: Date.now(), sender: 'user', text: userInput };
     setMessages((prev) => [...prev, userMessage]);
     setInput('');
     setIsTyping(true);
 
-    // Simulate AI response
-    try {
-        const response = await romanticChat(input);
-        const aiMessage: Message = { sender: 'ai', text: response };
-        setMessages((prev) => [...prev, aiMessage]);
-    } catch(error) {
-        console.error("Error getting AI response:", error);
-        const errorMessage: Message = { sender: 'ai', text: 'Desculpe, não estou me sentindo muito bem para conversar agora. Tente mais tarde.' };
-        setMessages((prev) => [...prev, errorMessage]);
-    } finally {
-        setIsTyping(false);
-    }
+    const aiMessageId = Date.now() + 1;
+    const aiMessage: Message = { id: aiMessageId, sender: 'ai', text: '' };
+    setMessages((prev) => [...prev, aiMessage]);
 
+    try {
+      await romanticChat({ message: userInput }, (chunk) => {
+        setMessages((prev) =>
+          prev.map((msg) =>
+            msg.id === aiMessageId
+              ? { ...msg, text: msg.text + chunk }
+              : msg
+          )
+        );
+      });
+    } catch (error) {
+      console.error("Error getting AI response:", error);
+      setMessages((prev) =>
+        prev.map((msg) =>
+          msg.id === aiMessageId
+            ? { ...msg, text: 'Desculpe, não estou me sentindo muito bem para conversar agora. Tente mais tarde.' }
+            : msg
+        )
+      );
+    } finally {
+      setIsTyping(false);
+    }
   };
 
   if (loading || !user) {
@@ -92,9 +106,9 @@ export default function ChatPage() {
                 </div>
                 <ScrollArea className="flex-1 p-4" ref={scrollAreaRef}>
                     <div className="space-y-4">
-                    {messages.map((message, index) => (
+                    {messages.map((message) => (
                         <div
-                        key={index}
+                        key={message.id}
                         className={`flex items-end gap-2 ${
                             message.sender === 'user' ? 'justify-end' : 'justify-start'
                         }`}
@@ -121,7 +135,7 @@ export default function ChatPage() {
                         )}
                         </div>
                     ))}
-                     {isTyping && (
+                     {isTyping && messages[messages.length -1]?.sender === 'user' && (
                         <div className="flex items-end gap-2 justify-start">
                             <Avatar className="h-8 w-8">
                                 <AvatarImage src="https://picsum.photos/seed/aigirl/100/100" data-ai-hint="woman portrait"/>
@@ -145,7 +159,7 @@ export default function ChatPage() {
                             autoComplete="off"
                             disabled={isTyping}
                         />
-                        <Button type="submit" size="icon" disabled={isTyping}>
+                        <Button type="submit" size="icon" disabled={isTyping || !input.trim()}>
                             <Send className="h-5 w-5" />
                         </Button>
                     </form>
