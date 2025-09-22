@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { Film } from 'lucide-react';
+import { Film, Gem } from 'lucide-react';
 import {
   Sidebar,
   SidebarContent,
@@ -20,13 +20,32 @@ export function NavigationSidebar() {
   const searchParams = useSearchParams();
   const currentCategory = searchParams.get('category');
   
-  if (pathname !== '/') {
+  const isSubscriptionPage = pathname === '/subscription';
+  if (pathname !== '/' && !isSubscriptionPage) {
     return null;
   }
 
   return (
     <Sidebar>
       <SidebarContent className="p-0">
+        <SidebarHeader>
+          <h3 className="text-lg font-semibold pl-2">Menu</h3>
+        </SidebarHeader>
+        <SidebarMenu>
+           <SidebarMenuItem>
+            <Link href="/subscription" passHref legacyBehavior>
+              <SidebarMenuButton
+                isActive={isSubscriptionPage}
+                className={cn('justify-start', {
+                    'bg-sidebar-accent text-sidebar-accent-foreground': isSubscriptionPage
+                })}
+              >
+                <Gem />
+                <span>Assinatura</span>
+              </SidebarMenuButton>
+            </Link>
+          </SidebarMenuItem>
+        </SidebarMenu>
         <SidebarHeader>
           <h3 className="text-lg font-semibold pl-2">Categorias</h3>
         </SidebarHeader>
