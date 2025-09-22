@@ -119,11 +119,11 @@ function SubscriptionPageContent() {
               Escolha o plano perfeito para você e tenha acesso ilimitado ao melhor conteúdo.
             </p>
           </div>
-          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="mt-12 flex flex-col md:flex-row gap-8">
             {plans.map((plan) => (
               <Card
                 key={plan.name}
-                className={`flex flex-col ${plan.featured ? 'border-primary ring-2 ring-primary' : ''}`}
+                className={`flex flex-col w-full ${plan.featured ? 'border-primary ring-2 ring-primary' : ''}`}
               >
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl">{plan.name}</CardTitle>
