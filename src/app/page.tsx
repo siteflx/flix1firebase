@@ -1,3 +1,4 @@
+// src/app/page.tsx
 "use client";
 
 import { useSearchParams } from 'next/navigation';
@@ -7,9 +8,9 @@ import { CAROUSEL_CATEGORIES, CarouselCategory } from '@/lib/placeholder-data';
 import { HeroBanner } from '@/components/hero-banner';
 import { useAuth } from '@/hooks/use-auth.tsx';
 import { NavigationSidebar } from '@/components/navigation-sidebar';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 
-export default function Home() {
+function HomePageContent() {
   const { user, loading } = useAuth();
   const searchParams = useSearchParams();
   const selectedCategoryId = searchParams.get('category');
@@ -47,5 +48,13 @@ export default function Home() {
         </main>
       </div>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div className="flex min-h-screen w-full flex-col items-center justify-center bg-background"><p>Carregando...</p></div>}>
+      <HomePageContent />
+    </Suspense>
   );
 }
