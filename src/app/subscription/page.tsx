@@ -1,3 +1,4 @@
+
 import { Header } from '@/components/header';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -171,7 +172,7 @@ function SubscriptionPageContent() {
           >
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
                     <Card className="h-full">
                       <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full">
@@ -194,8 +195,8 @@ function SubscriptionPageContent() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="ml-14" />
-            <CarouselNext className="mr-14" />
+            <CarouselPrevious className="ml-4 md:ml-14" />
+            <CarouselNext className="mr-4 md:mr-14" />
           </Carousel>
         </div>
       </main>
