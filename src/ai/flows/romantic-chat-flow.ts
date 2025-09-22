@@ -26,7 +26,7 @@ const prompt = ai.definePrompt({
   
   Sua resposta:`,
   config: {
-    model: 'openrouter/google/gemini-flash-1.5',
+    model: 'gemini-1.5-flash',
     temperature: 0.8,
   }
 });
