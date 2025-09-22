@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { Film, MessageCircle } from 'lucide-react';
+import { Film } from 'lucide-react';
 import {
   Sidebar,
   SidebarContent,
@@ -20,9 +20,7 @@ export function NavigationSidebar() {
   const searchParams = useSearchParams();
   const currentCategory = searchParams.get('category');
   
-  const isChatPage = pathname === '/chat';
-
-  if (pathname !== '/' && !isChatPage) {
+  if (pathname !== '/') {
     return null;
   }
 
@@ -61,19 +59,6 @@ export function NavigationSidebar() {
               </Link>
             </SidebarMenuItem>
           ))}
-            <SidebarMenuItem>
-              <Link href="/chat" passHref legacyBehavior>
-                <SidebarMenuButton
-                  isActive={isChatPage}
-                  className={cn('justify-start', {
-                    'bg-sidebar-accent text-sidebar-accent-foreground': isChatPage,
-                  })}
-                >
-                  <MessageCircle />
-                  <span>Chat ao Vivo</span>
-                </SidebarMenuButton>
-              </Link>
-            </SidebarMenuItem>
         </SidebarMenu>
       </SidebarContent>
     </Sidebar>

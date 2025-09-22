@@ -1,4 +1,4 @@
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/ai-chat-flow.ts';
+// Nenhum fluxo de chat para importar.
