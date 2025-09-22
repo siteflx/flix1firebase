@@ -28,9 +28,9 @@ function HomePageContent() {
   }
 
   return (
-      <div className="flex-1">
+      <div className="flex-1 overflow-x-hidden">
         {!selectedCategoryId && <HeroBanner />}
-        <main className="flex-1 space-y-12 overflow-x-hidden px-4 py-8 md:px-8">
+        <main className="flex-1 space-y-12 px-4 py-8 md:px-8">
           {visibleCategories.map((category) => (
             <VideoCarousel key={category.id} category={category} thumbnailAspectRatio="portrait" />
           ))}
