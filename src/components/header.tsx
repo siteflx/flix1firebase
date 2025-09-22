@@ -16,11 +16,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { useSidebar } from './ui/sidebar';
+import { useSearch } from './search-dialog';
 
 
 export function Header() {
   const { user, loading } = useAuth();
   const { toggleSidebar } = useSidebar();
+  const { setOpen } = useSearch();
   const router = useRouter();
 
   const handleSignOut = async () => {
@@ -53,7 +55,7 @@ export function Header() {
           </Link>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
-          <Button variant="ghost" size="icon" aria-label="Search">
+          <Button variant="ghost" size="icon" aria-label="Search" onClick={() => setOpen(true)}>
             <Search className="h-5 w-5" />
           </Button>
 

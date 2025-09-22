@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import { AuthProvider } from '@/hooks/use-auth.tsx';
 import { SidebarProvider } from '@/components/ui/sidebar';
 import Script from 'next/script';
+import { SearchProvider } from '@/components/search-dialog';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-body' });
 
@@ -48,9 +49,11 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} font-body antialiased bg-background text-foreground`}>
         <AuthProvider>
-          <SidebarProvider>
-            {children}
-          </SidebarProvider>
+          <SearchProvider>
+            <SidebarProvider>
+              {children}
+            </SidebarProvider>
+          </SearchProvider>
         </AuthProvider>
         <Toaster />
       </body>
