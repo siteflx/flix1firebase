@@ -116,7 +116,7 @@ function SubscriptionPageContent() {
       <Header />
       <main className="flex-1 p-4 py-8 md:p-8">
         <div className="mx-auto max-w-5xl">
-          <div className="text-center">
+          <div className="text-center px-2">
             <h1 className="text-4xl font-bold tracking-tight">Nossos Planos de Assinatura</h1>
             <p className="mt-4 text-lg text-muted-foreground">
               Escolha o plano perfeito para você e tenha acesso ilimitado ao melhor conteúdo.
@@ -157,7 +157,7 @@ function SubscriptionPageContent() {
         </div>
 
         <div className="mx-auto mt-20 max-w-6xl">
-          <div className="text-center">
+          <div className="text-center px-2">
             <h2 className="text-3xl font-bold tracking-tight">O que nossos assinantes dizem</h2>
             <p className="mt-4 text-lg text-muted-foreground">
               Veja por que milhares de usuários confiam na nossa plataforma.
@@ -195,8 +195,8 @@ function SubscriptionPageContent() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="ml-4 md:ml-14" />
-            <CarouselNext className="mr-4 md:mr-14" />
+            <CarouselPrevious className="ml-8 sm:ml-12 md:ml-14" />
+            <CarouselNext className="mr-8 sm:mr-12 md:mr-14" />
           </Carousel>
         </div>
       </main>
