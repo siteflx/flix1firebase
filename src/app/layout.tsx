@@ -9,6 +9,7 @@ import { SearchProvider } from '@/components/search-dialog';
 import { NavigationSidebar } from '@/components/navigation-sidebar';
 import { Suspense } from 'react';
 import { Spinner } from '@/components/ui/spinner';
+import { Footer } from '@/components/footer';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-body' });
 
@@ -54,12 +55,15 @@ export default function RootLayout({
         <AuthProvider>
           <SearchProvider>
             <SidebarProvider>
-               <Suspense fallback={<div className="flex min-h-screen w-full flex-col items-center justify-center bg-background"><Spinner className="h-10 w-10" /></div>}>
-                <div className="flex min-h-screen w-full">
-                  <NavigationSidebar />
+              <div className="flex min-h-screen w-full flex-col">
+                <div className="flex flex-1">
+                  <Suspense fallback={<div className="flex h-full w-full items-center justify-center"><Spinner className="h-10 w-10" /></div>}>
+                    <NavigationSidebar />
+                  </Suspense>
                   {children}
                 </div>
-              </Suspense>
+                <Footer />
+              </div>
             </SidebarProvider>
           </SearchProvider>
         </AuthProvider>

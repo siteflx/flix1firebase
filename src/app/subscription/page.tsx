@@ -2,6 +2,8 @@ import { Header } from '@/components/header';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Check } from 'lucide-react';
+import { Suspense } from 'react';
+import { Spinner } from '@/components/ui/spinner';
 
 const plans = [
   {
@@ -46,7 +48,7 @@ const plans = [
   },
 ];
 
-export default function SubscriptionPage() {
+function SubscriptionPageContent() {
   return (
     <div className="flex-1">
       <Header />
@@ -94,4 +96,12 @@ export default function SubscriptionPage() {
       </main>
     </div>
   );
+}
+
+export default function SubscriptionPage() {
+    return (
+        <Suspense fallback={<div className="flex min-h-screen w-full flex-col items-center justify-center bg-background"><Spinner className="h-10 w-10" /></div>}>
+            <SubscriptionPageContent />
+        </Suspense>
+    )
 }

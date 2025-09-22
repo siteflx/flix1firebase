@@ -21,7 +21,10 @@ export function NavigationSidebar() {
   const currentCategory = searchParams.get('category');
   
   const isSubscriptionPage = pathname === '/subscription';
-  if (pathname !== '/' && !isSubscriptionPage) {
+  const isAuthPage = pathname === '/login' || pathname === '/signup';
+  const isPolicyPage = pathname === '/privacy-policy' || pathname === '/terms-of-service';
+
+  if (isAuthPage || isPolicyPage) {
     return null;
   }
 

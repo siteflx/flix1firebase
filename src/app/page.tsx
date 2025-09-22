@@ -8,6 +8,7 @@ import { CAROUSEL_CATEGORIES } from '@/lib/placeholder-data';
 import { HeroBanner } from '@/components/hero-banner';
 import { useAuth } from '@/hooks/use-auth.tsx';
 import { Spinner } from '@/components/ui/spinner';
+import { Suspense } from 'react';
 
 function HomePageContent() {
   const { user, loading } = useAuth();
@@ -42,6 +43,8 @@ function HomePageContent() {
 
 export default function Home() {
   return (
+    <Suspense fallback={<div className="flex min-h-screen w-full flex-col items-center justify-center bg-background"><Spinner className="h-10 w-10" /></div>}>
       <HomePageContent />
+    </Suspense>
   );
 }
