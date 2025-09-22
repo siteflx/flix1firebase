@@ -27,14 +27,14 @@ const genres = [
   { id: 'kids', name: 'Crianças e Família', hint: 'kids cartoon' },
 ];
 
-const generateVideos = (genre: {id: string, name: string, hint: string}, count: number, portrait: boolean): Video[] => {
+const generateVideos = (genre: {id: string, name: string, hint: string}, count: number): Video[] => {
   return Array.from({ length: count }, (_, i) => {
     const videoId = `${genre.id}-${i + 1}`;
     return {
       id: videoId,
       title: `${genre.name} Filme ${i + 1}`,
       description: `Esta é uma descrição de espaço reservado para ${genre.name} Filme ${i + 1}.`,
-      thumbnailUrl: portrait ? `https://picsum.photos/seed/${videoId}/270/480` : `https://picsum.photos/seed/${videoId}/400/225`,
+      thumbnailUrl: `https://picsum.photos/seed/${videoId}/270/480`,
       videoUrl: `https://picsum.photos/seed/${videoId}/1280/720`,
       duration: `${Math.floor(Math.random() * 2) + 1}h ${Math.floor(Math.random() * 60)}m`,
       genre: genre.hint,
@@ -42,11 +42,10 @@ const generateVideos = (genre: {id: string, name: string, hint: string}, count: 
   });
 };
 
-export const CAROUSEL_CATEGORIES: CarouselCategory[] = genres.map((genre, index) => ({
+export const CAROUSEL_CATEGORIES: CarouselCategory[] = genres.map((genre) => ({
   id: genre.id,
   title: genre.name,
-  // Make first category portrait, others landscape
-  videos: generateVideos(genre, 10, false),
+  videos: generateVideos(genre, 10),
 }));
 
 export const ALL_VIDEOS: Video[] = CAROUSEL_CATEGORIES.flatMap(category => category.videos);

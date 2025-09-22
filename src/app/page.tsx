@@ -35,22 +35,14 @@ export default async function Home() {
   };
   
   const allCategories = recommendations.length > 0 ? [recommendationCategory, ...CAROUSEL_CATEGORIES] : CAROUSEL_CATEGORIES;
-  const firstCategory = allCategories.shift();
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-background">
       <Header />
       <HeroBanner />
       <main className="flex-1 space-y-12 overflow-x-hidden px-4 py-8 md:px-8">
-        {firstCategory && (
-            <VideoCarousel 
-              key={firstCategory.id} 
-              category={firstCategory} 
-              thumbnailAspectRatio="portrait" 
-            />
-          )}
         {allCategories.map((category) => (
-          <VideoCarousel key={category.id} category={category} thumbnailAspectRatio="landscape" />
+          <VideoCarousel key={category.id} category={category} thumbnailAspectRatio="portrait" />
         ))}
       </main>
     </div>
