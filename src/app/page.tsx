@@ -1,14 +1,30 @@
 "use client";
 
+import { useSearchParams } from 'next/navigation';
 import { Header } from '@/components/header';
 import { VideoCarousel } from '@/components/video-carousel';
-import { CAROUSEL_CATEGORIES } from '@/lib/placeholder-data';
+import { CAROUSEL_CATEGORIES, CarouselCategory } from '@/lib/placeholder-data';
 import { HeroBanner } from '@/components/hero-banner';
 import { useAuth } from '@/hooks/use-auth.tsx';
+import { NavigationSidebar } from '@/components/navigation-sidebar';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
   const { user, loading } = useAuth();
+  const searchParams = useSearchParams();
+  const selectedCategoryId = searchParams.get('category');
+  
+  const [visibleCategories, setVisibleCategories] = useState<CarouselCategory[]>(CAROUSEL_CATEGORIES);
+
+  useEffect(() => {
+    if (selectedCategoryId) {
+      const selected = CAROUSEL_CATEGORIES.find(cat => cat.id === selectedCategoryId);
+      setVisibleCategories(selected ? [selected] : CAROUSEL_CATEGORIES);
+    } else {
+      setVisibleCategories(CAROUSEL_CATEGORIES);
+    }
+  }, [selectedCategoryId]);
+
 
   if (loading || !user) {
     return (
@@ -19,14 +35,17 @@ export default function Home() {
   }
 
   return (
-    <div className="flex min-h-screen w-full flex-col bg-background">
-      <Header />
-      <HeroBanner />
-      <main className="flex-1 space-y-12 overflow-x-hidden px-4 py-8 md:px-8">
-        {CAROUSEL_CATEGORIES.map((category) => (
-          <VideoCarousel key={category.id} category={category} thumbnailAspectRatio="portrait" />
-        ))}
-      </main>
+    <div className="flex min-h-screen w-full">
+      <NavigationSidebar />
+      <div className="flex-1">
+        <Header />
+        {!selectedCategoryId && <HeroBanner />}
+        <main className="flex-1 space-y-12 overflow-x-hidden px-4 py-8 md:px-8">
+          {visibleCategories.map((category) => (
+            <VideoCarousel key={category.id} category={category} thumbnailAspectRatio="portrait" />
+          ))}
+        </main>
+      </div>
     </div>
   );
 }

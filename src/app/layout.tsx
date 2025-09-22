@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Inter } from 'next/font/google';
 import { AuthProvider } from '@/hooks/use-auth.tsx';
+import { SidebarProvider } from '@/components/ui/sidebar';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-body' });
 
@@ -20,7 +21,9 @@ export default function RootLayout({
     <html lang="pt-BR" className="dark">
       <body className={`${inter.variable} font-body antialiased bg-background text-foreground`}>
         <AuthProvider>
-          {children}
+          <SidebarProvider>
+            {children}
+          </SidebarProvider>
         </AuthProvider>
         <Toaster />
       </body>
