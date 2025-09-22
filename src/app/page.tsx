@@ -11,6 +11,7 @@ import { Suspense } from 'react';
 import { PromoBanner } from '@/components/promo-banner';
 import { TopCreatorsCarousel } from '@/components/top-creators-carousel';
 import { FeaturedCreatorsCarousel } from '@/components/featured-creators-carousel';
+import { PremiumContentPromo } from '@/components/premium-content-promo';
 
 function HomePageContent() {
   const { user, loading } = useAuth();
@@ -38,8 +39,9 @@ function HomePageContent() {
             <div key={category.id}>
               <VideoCarousel category={category} thumbnailAspectRatio="portrait" />
               {category.id === 'action' && !selectedCategoryId && (
-                 <div className="pt-12">
+                 <div className="pt-12 space-y-12">
                    <FeaturedCreatorsCarousel />
+                   <PremiumContentPromo />
                  </div>
               )}
               {category.id === 'comedy' && !selectedCategoryId && (
