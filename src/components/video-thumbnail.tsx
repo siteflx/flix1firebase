@@ -6,12 +6,12 @@ import { PlayCircle } from 'lucide-react';
 export function VideoThumbnail({ video }: { video: Video }) {
   return (
     <Link href={`/watch/${video.id}`} className="block group" aria-label={`Watch ${video.title}`}>
-      <div className="relative overflow-hidden rounded-md aspect-video bg-muted shadow-lg">
+      <div className="relative overflow-hidden rounded-md aspect-[9/16] bg-muted shadow-lg">
         <Image
           src={video.thumbnailUrl}
           alt={video.title}
-          width={400}
-          height={225}
+          width={270}
+          height={480}
           className="object-cover w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-110"
           data-ai-hint={video.genre}
         />

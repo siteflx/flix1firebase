@@ -26,7 +26,7 @@ export function VideoCarousel({ category }: { category: CarouselCategory }) {
       >
         <CarouselContent className="-ml-2">
           {category.videos.map((video) => (
-            <CarouselItem key={video.id} className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 2xl:basis-[12.5%] pl-2">
+            <CarouselItem key={video.id} className="basis-1/3 sm:basis-1/4 md:basis-1/5 lg:basis-1/6 xl:basis-[12.5%] 2xl:basis-[10%] pl-2">
               <VideoThumbnail video={video} />
             </CarouselItem>
           ))}
