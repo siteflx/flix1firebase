@@ -10,8 +10,9 @@ import { Header } from '@/components/header';
 import { NavigationSidebar } from '@/components/navigation-sidebar';
 import { useAuth } from '@/hooks/use-auth.tsx';
 import { Spinner } from '@/components/ui/spinner';
-import { romanticChat } from '@/ai/flows/romantic-chat-flow';
+import { streamAiChat } from '@/ai/flows/ai-chat-flow';
 import { Send, Video } from 'lucide-react';
+import type { FlowRunAction, FlowRunState } from 'genkit/flow';
 
 interface Message {
   id: number;
@@ -50,15 +51,23 @@ export default function ChatPage() {
     setMessages((prev) => [...prev, { id: aiMessageId, sender: 'ai', text: '' }]);
 
     try {
-      await romanticChat({ message: userInput }, (chunk) => {
-        setMessages((prev) =>
-          prev.map((msg) =>
-            msg.id === aiMessageId
-              ? { ...msg, text: msg.text + chunk }
-              : msg
-          )
-        );
-      });
+      const stream = await streamAiChat({ message: userInput });
+
+      for await (const chunk of stream) {
+        const action = chunk as FlowRunAction;
+        if (action?.type === 'output') {
+           const output = action.output as any;
+           if (output?.text) {
+              setMessages((prev) =>
+                prev.map((msg) =>
+                  msg.id === aiMessageId
+                    ? { ...msg, text: msg.text + output.text }
+                    : msg
+                )
+              );
+           }
+        }
+      }
     } catch (error) {
       console.error("Error getting AI response:", error);
       setMessages((prev) =>

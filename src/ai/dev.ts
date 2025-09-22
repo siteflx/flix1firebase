@@ -1,4 +1,4 @@
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/romantic-chat-flow.ts';
+import '@/ai/flows/ai-chat-flow.ts';
