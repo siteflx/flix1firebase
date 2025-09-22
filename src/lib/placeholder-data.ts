@@ -17,14 +17,6 @@ export interface CarouselCategory {
 const genres = [
   { id: 'action', name: 'Ação e Aventura', hint: 'action movie' },
   { id: 'comedy', name: 'Comédias', hint: 'comedy movie' },
-  { id: 'drama', name: 'Dramas', hint: 'drama movie' },
-  { id: 'scifi', name: 'Ficção Científica e Fantasia', hint: 'sci-fi' },
-  { id: 'horror', name: 'Terror', hint: 'horror movie' },
-  { id: 'thriller', name: 'Suspense', hint: 'thriller movie' },
-  { id: 'docu', name: 'Documentários', hint: 'documentary' },
-  { id: 'romance', name: 'Romance', hint: 'romance movie' },
-  { id: 'anime', name: 'Animes', hint: 'anime' },
-  { id: 'kids', name: 'Crianças e Família', hint: 'kids cartoon' },
 ];
 
 const newActionThumbnails = [
