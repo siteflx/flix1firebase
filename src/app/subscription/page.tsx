@@ -1,9 +1,11 @@
 import { Header } from '@/components/header';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check } from 'lucide-react';
+import { Check, Star } from 'lucide-react';
 import { Suspense } from 'react';
 import { Spinner } from '@/components/ui/spinner';
+import Image from 'next/image';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const plans = [
   {
@@ -48,6 +50,58 @@ const plans = [
   },
 ];
 
+const testimonials = [
+  {
+    name: 'João Silva',
+    quote: 'A variedade de conteúdo é incrível. Sempre encontro algo novo e interessante para assistir. Vale cada centavo!',
+    avatarUrl: 'https://picsum.photos/seed/joao/100/100',
+    imageHint: 'man portrait',
+  },
+  {
+    name: 'Carlos Pereira',
+    quote: 'Finalmente uma plataforma com conteúdo de qualidade e sem interrupções. A experiência de streaming é perfeita.',
+    avatarUrl: 'https://picsum.photos/seed/carlos/100/100',
+    imageHint: 'man profile',
+  },
+  {
+    name: 'Miguel Ferreira',
+    quote: 'Assinei o plano anual e não me arrependo. O custo-benefício é excelente e a qualidade dos vídeos é impressionante.',
+    avatarUrl: 'https://picsum.photos/seed/miguel/100/100',
+    imageHint: 'happy man',
+  },
+  {
+    name: 'André Rodrigues',
+    quote: 'O site é super fácil de navegar e o design é muito moderno. Recomendo a todos os meus amigos.',
+    avatarUrl: 'https://picsum.photos/seed/andre/100/100',
+    imageHint: 'smiling person',
+  },
+  {
+    name: 'Francisco Almeida',
+    quote: 'O suporte prioritário do plano anual é um diferencial. Tive uma dúvida e fui atendido rapidamente. Serviço de primeira!',
+    avatarUrl: 'https://picsum.photos/seed/francisco/100/100',
+    imageHint: 'professional man',
+  },
+  {
+    name: 'Diogo Santos',
+    quote: 'Estava cético no início, mas o plano semanal me convenceu. A qualidade do conteúdo é muito superior à da concorrência.',
+    avatarUrl: 'https://picsum.photos/seed/diogo/100/100',
+    imageHint: 'casual man',
+  },
+  {
+    name: 'Pedro Costa',
+    quote: 'Como um grande fã de animes, encontrei aqui um catálogo que não via em nenhum outro lugar. Estou muito satisfeito.',
+    avatarUrl: 'https://picsum.photos/seed/pedro/100/100',
+    imageHint: 'young man',
+  },
+  {
+    name: 'Manuel Gonçalves',
+    quote: 'A plataforma funciona perfeitamente em todos os meus dispositivos, seja no celular, tablet ou na TV. Muito prático!',
+    avatarUrl: 'https://picsum.photos/seed/manuel/100/100',
+    imageHint: 'man outdoor',
+  },
+];
+
+
 function SubscriptionPageContent() {
   return (
     <div className="flex-1">
@@ -89,6 +143,40 @@ function SubscriptionPageContent() {
                     {plan.buttonText}
                   </Button>
                 </CardFooter>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        <div className="mx-auto mt-20 max-w-5xl">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight">O que nossos assinantes dizem</h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Veja por que milhares de usuários confiam na nossa plataforma.
+            </p>
+          </div>
+          <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {testimonials.map((testimonial) => (
+              <Card key={testimonial.name} className="flex flex-col justify-between">
+                <CardContent className="pt-6">
+                  <div className="flex items-center gap-4">
+                    <Avatar>
+                       <AvatarImage src={testimonial.avatarUrl} alt={testimonial.name} data-ai-hint={testimonial.imageHint} />
+                       <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <p className="font-semibold">{testimonial.name}</p>
+                      <div className="flex items-center gap-0.5">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <blockquote className="mt-4 border-l-2 border-primary/20 pl-4 italic text-muted-foreground">
+                    {testimonial.quote}
+                  </blockquote>
+                </CardContent>
               </Card>
             ))}
           </div>
