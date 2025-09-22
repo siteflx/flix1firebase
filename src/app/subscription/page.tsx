@@ -6,6 +6,13 @@ import { Suspense } from 'react';
 import { Spinner } from '@/components/ui/spinner';
 import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const plans = [
   {
@@ -148,38 +155,48 @@ function SubscriptionPageContent() {
           </div>
         </div>
 
-        <div className="mx-auto mt-20 max-w-5xl">
+        <div className="mx-auto mt-20 max-w-6xl">
           <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight">O que nossos assinantes dizem</h2>
             <p className="mt-4 text-lg text-muted-foreground">
               Veja por que milhares de usuários confiam na nossa plataforma.
             </p>
           </div>
-          <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {testimonials.map((testimonial) => (
-              <Card key={testimonial.name} className="flex flex-col justify-between">
-                <CardContent className="pt-6">
-                  <div className="flex items-center gap-4">
-                    <Avatar>
-                       <AvatarImage src={testimonial.avatarUrl} alt={testimonial.name} data-ai-hint={testimonial.imageHint} />
-                       <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <p className="font-semibold">{testimonial.name}</p>
-                      <div className="flex items-center gap-0.5">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                        ))}
-                      </div>
-                    </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full mt-12"
+          >
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+                  <div className="p-1">
+                    <Card className="h-full">
+                      <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full">
+                        <Avatar className="w-20 h-20 mb-4">
+                          <AvatarImage src={testimonial.avatarUrl} alt={testimonial.name} data-ai-hint={testimonial.imageHint} />
+                          <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                        </Avatar>
+                        <p className="font-semibold text-lg">{testimonial.name}</p>
+                        <div className="flex items-center gap-0.5 my-2">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                          ))}
+                        </div>
+                        <blockquote className="mt-2 text-muted-foreground italic">
+                          "{testimonial.quote}"
+                        </blockquote>
+                      </CardContent>
+                    </Card>
                   </div>
-                  <blockquote className="mt-4 border-l-2 border-primary/20 pl-4 italic text-muted-foreground">
-                    {testimonial.quote}
-                  </blockquote>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="ml-14" />
+            <CarouselNext className="mr-14" />
+          </Carousel>
         </div>
       </main>
     </div>
