@@ -3,15 +3,14 @@ import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
-// IMPORTANT: Replace with your actual Firebase project configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-  measurementId: "YOUR_MEASUREMENT_ID"
+  apiKey: "AIzaSyA6UbPxktykBO7Le6oMSwNErJT-7GARGPY",
+  authDomain: "banco-de-dados-fba27.firebaseapp.com",
+  projectId: "banco-de-dados-fba27",
+  storageBucket: "banco-de-dados-fba27.appspot.com",
+  messagingSenderId: "993017209264",
+  appId: "1:993017209264:web:9fffd3d8224b4c33b0b675",
+  measurementId: "G-JJDMJ1DRXQ"
 };
 
 // Initialize Firebase
