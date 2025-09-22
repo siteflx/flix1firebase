@@ -20,8 +20,8 @@ export function PremiumContentPromo() {
           />
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
-            <Lock className="h-12 w-12 drop-shadow-lg" />
-            <h3 className="mt-4 text-2xl font-bold drop-shadow-lg">
+            <Lock className="h-10 w-10 drop-shadow-lg" />
+            <h3 className="mt-4 text-xl font-bold drop-shadow-lg">
               Assinatura Premium
             </h3>
             <p className="mt-1 text-sm text-white/90 drop-shadow-md">
