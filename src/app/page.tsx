@@ -9,6 +9,7 @@ import { HeroBanner } from '@/components/hero-banner';
 import { useAuth } from '@/hooks/use-auth.tsx';
 import { NavigationSidebar } from '@/components/navigation-sidebar';
 import { useEffect, useState, Suspense } from 'react';
+import { Spinner } from '@/components/ui/spinner';
 
 function HomePageContent() {
   const { user, loading } = useAuth();
@@ -30,7 +31,7 @@ function HomePageContent() {
   if (loading || !user) {
     return (
       <div className="flex min-h-screen w-full flex-col items-center justify-center bg-background">
-        <p>Carregando...</p>
+        <Spinner className="h-10 w-10" />
       </div>
     );
   }
@@ -53,7 +54,7 @@ function HomePageContent() {
 
 export default function Home() {
   return (
-    <Suspense fallback={<div className="flex min-h-screen w-full flex-col items-center justify-center bg-background"><p>Carregando...</p></div>}>
+    <Suspense fallback={<div className="flex min-h-screen w-full flex-col items-center justify-center bg-background"><Spinner className="h-10 w-10" /></div>}>
       <HomePageContent />
     </Suspense>
   );
