@@ -34,9 +34,9 @@ export function VideoCarousel({ category, thumbnailAspectRatio }: VideoCarouselP
         className="w-full"
       >
         <CarouselContent className="-ml-2">
-          {category.videos.map((video) => (
+          {category.videos.map((video, index) => (
             <CarouselItem key={video.id} className={`${itemBasis} pl-2`}>
-              <VideoThumbnail video={video} aspectRatio={thumbnailAspectRatio} />
+              <VideoThumbnail video={video} aspectRatio={thumbnailAspectRatio} rank={index + 1} />
             </CarouselItem>
           ))}
         </CarouselContent>
