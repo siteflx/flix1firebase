@@ -4,7 +4,7 @@
 
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { Play, Gem } from 'lucide-react';
+import { Play, Gem, Image as ImageIcon } from 'lucide-react';
 import {
   Sidebar,
   SidebarContent,
@@ -30,6 +30,7 @@ export function NavigationSidebar() {
   };
   
   const isSubscriptionPage = pathname === '/subscription';
+  const isGalleryPage = pathname === '/gallery';
   const isAuthPage = pathname === '/login' || pathname === '/signup';
   const isPolicyPage = pathname === '/privacy-policy' || pathname === '/terms-of-service';
 
@@ -55,6 +56,20 @@ export function NavigationSidebar() {
                 >
                   <Gem />
                   <span>Assinatura</span>
+                </SidebarMenuButton>
+            </Link>
+          </SidebarMenuItem>
+           <SidebarMenuItem>
+            <Link href="/gallery" onClick={handleLinkClick} className="w-full">
+                <SidebarMenuButton
+                  as="div"
+                  isActive={isGalleryPage}
+                  className={cn('justify-start w-full', {
+                      'bg-sidebar-accent text-sidebar-accent-foreground': isGalleryPage
+                  })}
+                >
+                  <ImageIcon />
+                  <span>Galeria</span>
                 </SidebarMenuButton>
             </Link>
           </SidebarMenuItem>

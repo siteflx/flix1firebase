@@ -61,6 +61,12 @@
     { "id": "featured-creator-3", "imageUrl": "https://storage.googleapis.com/audiossswe/foto%203%20(6).png", "imageHint": "woman fashion" },
     { "id": "featured-creator-4", "imageUrl": "https://storage.googleapis.com/audiossswe/foto%203%20(4).png", "imageHint": "woman smiling" },
     { "id": "featured-creator-5", "imageUrl": "https://storage.googleapis.com/audiossswe/foto%203%20(5).png", "imageHint": "woman style" },
-    { "id": "featured-creator-6", "imageUrl": "https://storage.googleapis.com/audiossswe/foto%203%20(6).png", "imageHint": "woman fashion" }
+    { "id": "featured-creator-6", "imageUrl": "https://storage.googleapis.com/audiossswe/foto%203%20(6).png", "imageHint": "woman fashion" },
+    { "id": "gallery-image-1", "imageUrl": "https://storage.googleapis.com/audiossswe/gallery/gallery-1.png", "imageHint": "woman beach" },
+    { "id": "gallery-image-2", "imageUrl": "https://storage.googleapis.com/audiossswe/gallery/gallery-2.png", "imageHint": "woman portrait" },
+    { "id": "gallery-image-3", "imageUrl": "https://storage.googleapis.com/audiossswe/gallery/gallery-3.png", "imageHint": "woman style" },
+    { "id": "gallery-image-4", "imageUrl": "https://storage.googleapis.com/audiossswe/gallery/gallery-4.png", "imageHint": "woman fashion" },
+    { "id": "gallery-image-5", "imageUrl": "https://storage.googleapis.com/audiossswe/gallery/gallery-5.png", "imageHint": "woman smiling" },
+    { "id": "gallery-image-6", "imageUrl": "https://storage.googleapis.com/audiossswe/gallery/gallery-6.png", "imageHint": "woman nature" }
   ]
 }
