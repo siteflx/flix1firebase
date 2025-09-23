@@ -29,7 +29,7 @@ export function SubscriptionPopup() {
             <p className="text-5xl font-bold tracking-tight">€49</p>
         </div>
         <div className="flex flex-col gap-2">
-            <Button size="lg" asChild>
+            <Button size="lg" asChild variant="destructive">
                 <Link href={externalLink} target="_blank" rel="noopener noreferrer">Assinar Agora</Link>
             </Button>
             <Button size="lg" variant="outline" onClick={() => setIsOpen(false)}>
