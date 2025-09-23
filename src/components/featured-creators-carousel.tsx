@@ -11,7 +11,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import placeholderData from '@/lib/placeholder-images.json';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Eye } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useSubscriptionPopup } from '@/hooks/use-subscription-popup';
 
@@ -94,7 +94,13 @@ export function FeaturedCreatorsCarousel() {
   return (
     <section className="space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold tracking-tight">Criadores em Destaque</h2>
+        <div className="flex items-center gap-4">
+            <h2 className="text-2xl font-bold tracking-tight">Destaque mais assistidos</h2>
+            <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                <Eye className="h-4 w-4" /> 
+                <span>+8.786</span>
+            </div>
+        </div>
         <Link href="/creators" className="flex items-center text-sm text-muted-foreground hover:text-primary">
             <span>Ver todos</span>
             <ChevronRight className="h-4 w-4" />
