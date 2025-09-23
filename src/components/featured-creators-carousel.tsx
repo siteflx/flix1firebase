@@ -9,7 +9,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import placeholderData from '@/lib/placeholder-images.json';
-import { CheckCircle, ChevronRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const creators = [
@@ -58,13 +58,12 @@ const creators = [
 ];
 
 interface CreatorCardProps {
-  rank: number;
   name: string;
   handle: string;
   imageKey: string;
 }
 
-function CreatorCard({ rank, name, handle, imageKey }: CreatorCardProps) {
+function CreatorCard({ name, handle, imageKey }: CreatorCardProps) {
   const creatorImage = placeholderData.placeholderImages.find(img => img.id === imageKey);
   // Use um placeholder genérico caso a imagem específica não seja encontrada
   const imageUrl = creatorImage?.imageUrl || `https://picsum.photos/seed/${imageKey}/400/600`;
@@ -82,15 +81,6 @@ function CreatorCard({ rank, name, handle, imageKey }: CreatorCardProps) {
           data-ai-hint={imageHint}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-        <div className="absolute inset-0 flex flex-col justify-end p-4 text-white">
-          <div className="relative z-10">
-            <div className="flex items-center gap-1.5">
-                <h3 className="font-bold text-lg truncate">{name}</h3>
-                <CheckCircle className="h-4 w-4 text-blue-400 fill-white" />
-            </div>
-            <p className="text-sm text-white/80 truncate">{handle}</p>
-          </div>
-        </div>
       </div>
     </Link>
   );
@@ -118,7 +108,6 @@ export function FeaturedCreatorsCarousel() {
           {creators.map((creator, index) => (
             <CarouselItem key={creator.id} className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 pl-2">
               <CreatorCard
-                rank={index + 1}
                 name={creator.name}
                 handle={creator.handle}
                 imageKey={creator.imageKey}
