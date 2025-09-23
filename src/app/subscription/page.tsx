@@ -122,12 +122,12 @@ function SubscriptionPageContent() {
           </div>
           
           <div className="mt-12 w-full">
-             <div className="flex flex-col gap-6 sm:grid sm:grid-cols-2 md:grid-cols-3 md:gap-8">
+             <div className="flex flex-col items-center gap-6 sm:grid sm:grid-cols-2 sm:items-stretch md:grid-cols-3 md:gap-8">
               {plans.map((plan) => (
                 <Card
                   key={plan.name}
                   className={cn(
-                    'w-full max-w-sm mx-auto flex flex-col justify-between h-full',
+                    'w-full max-w-sm flex flex-col justify-between h-full',
                     plan.featured ? 'border-primary ring-2 ring-primary' : ''
                   )}
                 >
