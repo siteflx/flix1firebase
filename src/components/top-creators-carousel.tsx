@@ -8,69 +8,28 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import placeholderData from '@/lib/placeholder-images.json';
 import { ChevronRight, Lock } from 'lucide-react';
 import { Button } from './ui/button';
 
 const creators = [
-  {
-    id: 'gaby-lopez',
-    name: 'Gaby Lopez',
-    handle: '@gabylopez',
-    imageKey: 'creator-gaby',
-  },
-  {
-    id: 'loiradocorno',
-    name: 'Loiradocorno',
-    handle: '@Loiradocorno',
-    imageKey: 'creator-loira',
-  },
-  {
-    id: 'aline-faria',
-    name: 'Aline Faria',
-    handle: '@AlineFaria',
-    imageKey: 'creator-aline',
-  },
-  {
-    id: 'carla-dias',
-    name: 'Carla Dias',
-    handle: '@carladias',
-    imageKey: 'creator-carla',
-  },
-  {
-    id: 'bruna-santos',
-    name: 'Bruna Santos',
-    handle: '@bruna.santos',
-    imageKey: 'creator-bruna',
-  },
-  {
-    id: 'fernanda-lima',
-    name: 'Fernanda Lima',
-    handle: '@fernandalima',
-    imageKey: 'creator-fernanda',
-  },
-  {
-    id: 'juliana-paes',
-    name: 'Juliana Paes',
-    handle: '@jupaes',
-    imageKey: 'creator-juliana',
-  },
+  { id: 'creator-1' },
+  { id: 'creator-2' },
+  { id: 'creator-3' },
+  { id: 'creator-4' },
+  { id: 'creator-5' },
+  { id: 'creator-6' },
+  { id: 'creator-7' },
 ];
 
-interface CreatorCardProps {
-  imageKey: string;
-}
+const sharedImageUrl = "https://storage.googleapis.com/audiossswe/foto%203%20(6).png";
+const imageHint = "woman fashion";
 
-function CreatorCard({ imageKey }: CreatorCardProps) {
-  const creatorImage = placeholderData.placeholderImages.find(img => img.id === imageKey);
-  const imageUrl = creatorImage?.imageUrl || 'https://picsum.photos/seed/creator-placeholder/400/600';
-  const imageHint = creatorImage?.imageHint || 'woman portrait';
-
+function CreatorCard() {
   return (
     <Link href="/subscription" className="block group">
       <div className="relative aspect-[9/14] w-full overflow-hidden rounded-lg bg-muted shadow-lg">
         <Image
-          src={imageUrl}
+          src={sharedImageUrl}
           alt="Conteúdo Premium"
           fill
           className="object-cover grayscale transition-transform duration-300 ease-in-out group-hover:scale-110"
@@ -79,7 +38,7 @@ function CreatorCard({ imageKey }: CreatorCardProps) {
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
             <Lock className="h-10 w-10 drop-shadow-lg" />
-            <Button variant="secondary" className="mt-6">
+            <Button variant="default" className="mt-6">
                 Assinar
             </Button>
         </div>
@@ -109,9 +68,7 @@ export function TopCreatorsCarousel() {
         <CarouselContent className="-ml-2">
           {creators.map((creator) => (
             <CarouselItem key={creator.id} className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 pl-2">
-              <CreatorCard
-                imageKey={creator.imageKey}
-              />
+              <CreatorCard />
             </CarouselItem>
           ))}
         </CarouselContent>
