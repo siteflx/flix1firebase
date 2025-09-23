@@ -64,12 +64,6 @@ export function HeroBanner() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-4 md:p-8 lg:p-12 w-full md:w-2/3 lg:w-1/2">
-                  <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-lg">
-                    {item.title}
-                  </h1>
-                  <p className="mt-2 md:mt-4 text-sm md:text-base text-white/90 drop-shadow-md hidden md:block">
-                    {item.description}
-                  </p>
                   <div className="mt-4 flex gap-2">
                     <Button size="lg">
                       <PlayCircle className="mr-2" />
