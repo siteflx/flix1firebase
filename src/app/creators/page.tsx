@@ -11,7 +11,6 @@ import Link from 'next/link';
 
 const lockedItems = Array.from({ length: 6 }, (_, i) => ({ id: i + 1 }));
 const imageUrl = 'https://storage.googleapis.com/audiossswe/foto%201.png';
-const externalLink = "https://www.youtube.com/watch?v=fuMYUadwFXM&list=RDTBvN4manm10&index=2";
 
 function LockedContentCard() {
     const { setIsOpen } = useSubscriptionPopup();
@@ -36,8 +35,8 @@ function LockedContentCard() {
                     <p className="mt-1 text-sm text-white/90 drop-shadow-md text-center">
                     Desbloqueie este e todo o conteúdo com um de nossos planos.
                     </p>
-                    <Button variant="secondary" className="mt-6" asChild>
-                        <Link href={externalLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>Ver Planos</Link>
+                    <Button variant="secondary" className="mt-6" onClick={(e) => { e.stopPropagation(); setIsOpen(true); }}>
+                        Ver Planos
                     </Button>
                 </div>
                 </div>

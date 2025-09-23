@@ -21,7 +21,6 @@ const promoItems = [
 ];
 
 const imageUrl = 'https://storage.googleapis.com/audiossswe/foto%201.png';
-const externalLink = "https://www.youtube.com/watch?v=fuMYUadwFXM&list=RDTBvN4manm10&index=2";
 
 function PromoCard() {
     const { setIsOpen } = useSubscriptionPopup();
@@ -45,8 +44,8 @@ function PromoCard() {
                     <p className="mt-1 text-sm text-white/90 drop-shadow-md">
                     Desbloqueie todo o conteúdo com um de nossos planos.
                     </p>
-                    <Button variant="secondary" className="mt-6" asChild>
-                        <Link href={externalLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>Ver Planos</Link>
+                    <Button variant="secondary" className="mt-6" onClick={(e) => { e.stopPropagation(); setIsOpen(true); }}>
+                        Ver Planos
                     </Button>
                 </div>
             </div>
