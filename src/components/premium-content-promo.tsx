@@ -9,7 +9,7 @@ export function PremiumContentPromo() {
 
   return (
     <section className="w-full flex justify-center">
-      <Link href="/subscription" className="block group w-full max-w-lg">
+      <Link href="/join" className="block group w-full max-w-lg">
         <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-muted shadow-lg">
           <Image
             src={imageUrl}
