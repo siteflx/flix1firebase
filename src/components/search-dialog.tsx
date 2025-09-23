@@ -79,6 +79,7 @@ function SearchDialog() {
     <Dialog open={isOpen} onOpenChange={setOpen}>
       <DialogContent className="sm:max-w-[625px] p-0 gap-0">
         <DialogHeader className="p-4 border-b">
+           <DialogTitle className="sr-only">Pesquisar</DialogTitle>
           <div className="flex items-center gap-2">
             <Search className="h-5 w-5 text-muted-foreground" />
             <Input
