@@ -122,7 +122,7 @@ function SubscriptionPageContent() {
           </div>
           
           <div className="mt-12 w-full">
-             <div className="flex flex-col items-center gap-6 sm:grid sm:grid-cols-2 sm:items-stretch md:grid-cols-3 md:gap-8">
+             <div className="grid grid-cols-1 place-items-center gap-6 sm:grid-cols-2 sm:place-items-stretch sm:gap-6 md:grid-cols-3 md:gap-8">
               {plans.map((plan) => (
                 <Card
                   key={plan.name}
