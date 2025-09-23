@@ -12,7 +12,6 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { useSubscriptionPopup } from '@/hooks/use-subscription-popup';
-import Link from 'next/link';
 
 const promoItems = [
   { id: 1 },
@@ -41,12 +40,6 @@ function PromoCard() {
                     <h3 className="mt-4 text-xl font-bold drop-shadow-lg">
                     Assinatura Premium
                     </h3>
-                    <p className="mt-1 text-sm text-white/90 drop-shadow-md">
-                    Desbloqueie todo o conteúdo com um de nossos planos.
-                    </p>
-                    <Button variant="secondary" className="mt-6" onClick={(e) => { e.stopPropagation(); setIsOpen(true); }}>
-                        Ver Planos
-                    </Button>
                 </div>
             </div>
         </div>
