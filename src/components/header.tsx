@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Clapperboard, LogOut, Search, User, Menu } from 'lucide-react';
@@ -6,7 +7,7 @@ import { Button } from './ui/button';
 import { auth } from '@/lib/firebase';
 import { signOut } from 'firebase/auth';
 import { useAuth } from '@/hooks/use-auth.tsx';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,11 +25,14 @@ export function Header() {
   const { toggleSidebar } = useSidebar();
   const { setOpen } = useSearch();
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleSignOut = async () => {
     await signOut(auth);
     router.push('/login');
   };
+
+  const isWatchPage = pathname.startsWith('/watch/');
 
   if (loading) {
     return (
@@ -55,9 +59,11 @@ export function Header() {
           </Link>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
-          <Button variant="ghost" size="icon" aria-label="Search" onClick={() => setOpen(true)}>
-            <Search className="h-5 w-5" />
-          </Button>
+          {!isWatchPage && (
+            <Button variant="ghost" size="icon" aria-label="Search" onClick={() => setOpen(true)}>
+              <Search className="h-5 w-5" />
+            </Button>
+          )}
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
