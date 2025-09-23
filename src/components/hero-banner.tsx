@@ -3,6 +3,7 @@
 
 import * as React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Autoplay from "embla-carousel-autoplay";
 
 import { Button } from './ui/button';
@@ -65,13 +66,17 @@ export function HeroBanner() {
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-4 md:p-8 lg:p-12 w-full md:w-2/3 lg:w-1/2">
                   <div className="mt-4 flex gap-2">
-                    <Button size="lg">
-                      <PlayCircle className="mr-2" />
-                      Assistir
+                    <Button size="lg" asChild>
+                      <Link href="/top-creators">
+                        <PlayCircle className="mr-2" />
+                        Assistir
+                      </Link>
                     </Button>
-                    <Button size="lg" variant="secondary">
-                      <Info className="mr-2" />
-                      Mais informações
+                    <Button size="lg" variant="secondary" asChild>
+                      <Link href="/subscription">
+                        <Info className="mr-2" />
+                        Mais informações
+                      </Link>
                     </Button>
                   </div>
                 </div>
