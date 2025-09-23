@@ -29,13 +29,13 @@ function LockedContentCard() {
                 <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
                     <Lock className="h-10 w-10 drop-shadow-lg" />
-                    <h3 className="mt-4 text-xl font-bold drop-shadow-lg">
+                    <h3 className="mt-4 text-xl font-bold drop-shadow-lg text-primary">
                     Assinatura Premium
                     </h3>
-                    <p className="mt-1 text-sm text-white/90 drop-shadow-md text-center">
+                    <p className="mt-1 text-sm text-primary/90 drop-shadow-md text-center">
                     Desbloqueie este e todo o conteúdo com um de nossos planos.
                     </p>
-                    <Button variant="secondary" className="mt-6" onClick={(e) => { e.stopPropagation(); setIsOpen(true); }}>
+                    <Button variant="primary" className="mt-6" onClick={(e) => { e.stopPropagation(); setIsOpen(true); }}>
                         Ver Planos
                     </Button>
                 </div>
