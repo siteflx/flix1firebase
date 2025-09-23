@@ -59,11 +59,11 @@ export function Header() {
           </Link>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
-          {/* {!isWatchPage && (
+          {!isWatchPage && (
             <Button variant="ghost" size="icon" aria-label="Search" onClick={() => setOpen(true)}>
               <Search className="h-5 w-5" />
             </Button>
-          )} */}
+          )}
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
