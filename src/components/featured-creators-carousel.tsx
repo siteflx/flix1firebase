@@ -104,7 +104,7 @@ export function FeaturedCreatorsCarousel() {
     <section className="space-y-4">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold tracking-tight">Criadores em Destaque</h2>
-        <Link href="#" className="flex items-center text-sm text-muted-foreground hover:text-primary">
+        <Link href="/creators" className="flex items-center text-sm text-muted-foreground hover:text-primary">
             <span>Ver todos</span>
             <ChevronRight className="h-4 w-4" />
         </Link>
