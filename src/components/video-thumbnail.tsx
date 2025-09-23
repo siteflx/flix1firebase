@@ -16,19 +16,29 @@ export function VideoThumbnail({ video, aspectRatio, rank }: VideoThumbnailProps
 
   return (
     <Link href={`/watch/${video.id}`} className="block group" aria-label={`Watch ${video.title}`}>
-      <div className={cn("relative overflow-hidden rounded-md bg-muted shadow-lg", aspectClass)}>
-        <Image
-          src={video.thumbnailUrl}
-          alt={video.title}
-          width={aspectRatio === 'portrait' ? 270 : 400}
-          height={aspectRatio === 'portrait' ? 480 : 225}
-          className="object-cover w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-110"
-          data-ai-hint={video.genre}
-        />
-        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+       <div className="relative overflow-hidden rounded-md bg-muted shadow-lg group">
+        <div className={cn("relative w-full", aspectClass)}>
+          <Image
+            src={video.thumbnailUrl}
+            alt={video.title}
+            width={aspectRatio === 'portrait' ? 270 : 400}
+            height={aspectRatio === 'portrait' ? 480 : 225}
+            className="object-cover w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-110"
+            data-ai-hint={video.genre}
+          />
+           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
         
-        <div className="absolute inset-0 flex items-center justify-center">
-            <PlayCircle className="w-12 h-12 text-white/70 opacity-0 group-hover:opacity-100 transition-opacity transform-gpu group-hover:scale-110" />
+            <div className="absolute inset-0 flex items-center justify-center">
+                <PlayCircle className="w-12 h-12 text-white/70 opacity-0 group-hover:opacity-100 transition-opacity transform-gpu group-hover:scale-110" />
+            </div>
+
+            {rank && (
+                <div className="absolute top-2 left-2">
+                    <span className="text-2xl font-bold text-white drop-shadow-lg" style={{ WebkitTextStroke: '1px black' }}>
+                        {rank}
+                    </span>
+                </div>
+            )}
         </div>
       </div>
     </Link>
