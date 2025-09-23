@@ -1,10 +1,8 @@
 
 "use client";
 
-import Image from 'next/image';
 import { Button } from './ui/button';
 import { Sparkles } from 'lucide-react';
-import placeholderData from '@/lib/placeholder-images.json';
 import { useSubscriptionPopup } from '@/hooks/use-subscription-popup';
 
 export function PromoBanner() {
