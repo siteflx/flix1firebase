@@ -83,9 +83,6 @@ function CreatorCard({ rank, name, handle, imageKey }: CreatorCardProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-end p-4 text-white">
-          <div className="absolute top-0 left-0 flex items-start">
-             <span className="text-8xl font-bold text-white/80 drop-shadow-lg -ml-1 -mt-2" style={{ WebkitTextStroke: '2px rgba(0,0,0,0.2)' }}>{rank}</span>
-          </div>
           <div className="relative z-10">
             <div className="flex items-center gap-1.5">
                 <h3 className="font-bold text-lg truncate">{name}</h3>
