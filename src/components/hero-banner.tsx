@@ -60,7 +60,7 @@ export function HeroBanner() {
                   fill
                   className="object-cover"
                   data-ai-hint={item.imageHint}
-                  priority={index === 0}
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-4 md:p-8 lg:p-12 w-full md:w-2/3 lg:w-1/2">
