@@ -16,7 +16,7 @@ export interface CarouselCategory {
 }
 
 const genres = [
-  { id: 'action', name: 'Ação e Aventura', hint: 'action movie' },
+  { id: 'action', name: 'Destaque videos gratis', hint: 'action movie' },
   { id: 'comedy', name: 'Destaque', hint: 'comedy movie' },
 ];
 
