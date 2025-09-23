@@ -17,7 +17,7 @@ export interface CarouselCategory {
 
 const genres = [
   { id: 'action', name: 'Ação e Aventura', hint: 'action movie' },
-  { id: 'comedy', name: 'Comédias', hint: 'comedy movie' },
+  { id: 'comedy', name: 'Destaque', hint: 'comedy movie' },
 ];
 
 const newActionThumbnails = [
