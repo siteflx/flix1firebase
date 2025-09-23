@@ -51,7 +51,10 @@ function HomePageContent() {
                 <div className="pt-12 space-y-12">
                   <PromoBanner />
                   <TopCreatorsCarousel />
-                  <SecondaryHeroBanner />
+                  <div className="space-y-4">
+                    <h2 className="text-2xl font-bold tracking-tight">amigas em destaque</h2>
+                    <SecondaryHeroBanner />
+                  </div>
                 </div>
               )}
             </div>
