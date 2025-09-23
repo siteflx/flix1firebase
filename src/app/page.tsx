@@ -13,6 +13,7 @@ import { TopCreatorsCarousel } from '@/components/top-creators-carousel';
 import { FeaturedCreatorsCarousel } from '@/components/featured-creators-carousel';
 import { PremiumContentPromo } from '@/components/premium-content-promo';
 import { SecondaryHeroBanner } from '@/components/secondary-hero-banner';
+import { SubscriptionPopup } from '@/components/subscription-popup';
 
 function HomePageContent() {
   const { user, loading } = useAuth();
@@ -34,6 +35,7 @@ function HomePageContent() {
 
   return (
       <div className="flex-1 overflow-x-hidden">
+        <SubscriptionPopup />
         {!selectedCategoryId && <HeroBanner />}
         <main className="flex-1 space-y-12 px-4 py-8 md:px-8">
           {visibleCategories.map((category) => (
