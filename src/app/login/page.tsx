@@ -25,8 +25,8 @@ import { useToast } from '@/hooks/use-toast';
 import { Clapperboard } from 'lucide-react';
 
 const formSchema = z.object({
-  email: z.string().email({ message: 'Por favor, insira um email válido.' }),
-  password: z.string().min(1, { message: 'A senha é obrigatória.' }),
+  email: z.string().email({ message: 'Please enter a valid email.' }),
+  password: z.string().min(1, { message: 'Password is required.' }),
 });
 
 export default function LoginPage() {
@@ -49,8 +49,8 @@ export default function LoginPage() {
       router.push('/');
     } catch (error: any) {
       toast({
-        title: 'Erro de Login',
-        description: 'As credenciais fornecidas estão incorretas. Tente novamente.',
+        title: 'Login Error',
+        description: 'The credentials provided are incorrect. Please try again.',
         variant: 'destructive',
       });
     } finally {
@@ -62,7 +62,7 @@ export default function LoginPage() {
     <main className="relative min-h-screen w-full">
       <Image
         src="https://storage.googleapis.com/projeto--02/Screenshot_20250916_225546_Chrome%20(1).jpg"
-        alt="Plano de fundo"
+        alt="Background"
         fill
         className="object-cover grayscale"
         data-ai-hint="abstract background"
@@ -74,8 +74,8 @@ export default function LoginPage() {
               <div className="flex justify-center mb-4">
                 <Clapperboard className="h-10 w-10 text-primary" />
               </div>
-            <CardTitle className="text-2xl font-bold tracking-tight">Entrar no Flick Carousel</CardTitle>
-            <CardDescription>Use seu email e senha para acessar sua conta.</CardDescription>
+            <CardTitle className="text-2xl font-bold tracking-tight">Sign in to Flick Carousel</CardTitle>
+            <CardDescription>Use your email and password to access your account.</CardDescription>
           </CardHeader>
           <CardContent>
             <Form {...form}>
@@ -87,7 +87,7 @@ export default function LoginPage() {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="seuemail@exemplo.com" {...field} />
+                        <Input placeholder="youremail@example.com" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -98,23 +98,23 @@ export default function LoginPage() {
                   name="password"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Senha</FormLabel>
+                      <FormLabel>Password</FormLabel>
                       <FormControl>
-                        <Input type="password" placeholder="Sua senha" {...field} />
+                        <Input type="password" placeholder="Your password" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
                 <Button type="submit" className="w-full" disabled={loading}>
-                  {loading ? 'Entrando...' : 'Entrar'}
+                  {loading ? 'Signing in...' : 'Sign In'}
                 </Button>
               </form>
             </Form>
             <p className="mt-6 text-center text-sm text-muted-foreground">
-              Não tem uma conta?{' '}
+              Don't have an account?{' '}
               <Link href="/signup" className="font-semibold text-primary hover:underline">
-                Cadastre-se
+                Sign up
               </Link>
             </p>
           </CardContent>

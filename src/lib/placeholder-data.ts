@@ -16,8 +16,8 @@ export interface CarouselCategory {
 }
 
 const genres = [
-  { id: 'action', name: 'Destaque videos gratis', hint: 'action movie' },
-  { id: 'comedy', name: 'Destaques', hint: 'comedy movie' },
+  { id: 'action', name: 'Free Highlight Videos', hint: 'action movie' },
+  { id: 'comedy', name: 'Highlights', hint: 'comedy movie' },
 ];
 
 const newActionThumbnails = [
@@ -74,13 +74,13 @@ const generateVideos = (genre: {id: string, name: string, hint: string}, count: 
       }
     } else if (genre.id === 'comedy' && i < newComedyThumbnails.length) {
       thumbnailUrl = newComedyThumbnails[i];
-      // Mantém o vídeo de placeholder para comédia por enquanto
+      // Keep placeholder video for comedy for now
     }
     
     return {
       id: videoId,
-      title: `${genre.name} Filme ${i + 1}`,
-      description: `Esta é uma descrição de espaço reservado para ${genre.name} Filme ${i + 1}.`,
+      title: `${genre.name} Movie ${i + 1}`,
+      description: `This is a placeholder description for ${genre.name} Movie ${i + 1}.`,
       thumbnailUrl: thumbnailUrl,
       videoUrl: videoUrl,
       duration: `${Math.floor(Math.random() * 2) + 1}h ${Math.floor(Math.random() * 60)}m`,
@@ -113,8 +113,8 @@ export function findVideoById(id: string): Video | undefined {
     }
     return {
       id: id,
-      title: `Recomendado Para Você: Filme ${recId}`,
-      description: 'Uma recomendação especial para você, com base no seu histórico de visualização.',
+      title: `Recommended For You: Movie ${recId}`,
+      description: 'A special recommendation for you, based on your viewing history.',
       thumbnailUrl: `https://picsum.photos/seed/${id}/270/480`,
       videoUrl: `https://picsum.photos/seed/${id}/1280/720`,
       duration: '1h 55m',

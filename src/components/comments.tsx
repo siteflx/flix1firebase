@@ -12,22 +12,22 @@ const mockComments = [
   {
     id: 1,
     author: {
-      name: 'João Silva',
+      name: 'John Doe',
       avatarUrl: 'https://picsum.photos/seed/joao/40/40',
       imageHint: 'man portrait',
     },
-    text: 'Que filme incrível! A cinematografia é de outro mundo.',
-    timestamp: 'Há 2 horas',
+    text: 'What an incredible movie! The cinematography is out of this world.',
+    timestamp: '2 hours ago',
   },
   {
     id: 2,
     author: {
-      name: 'Maria Clara',
+      name: 'Jane Smith',
       avatarUrl: 'https://picsum.photos/seed/mariaclara/40/40',
       imageHint: 'woman smiling',
     },
-    text: 'Amei a reviravolta no final, não esperava por isso!',
-    timestamp: 'Há 5 horas',
+    text: 'Loved the twist at the end, did not see that coming!',
+    timestamp: '5 hours ago',
   },
 ];
 
@@ -43,17 +43,17 @@ export function Comments() {
 
     setIsSubmitting(true);
 
-    // Simula uma chamada de API
+    // Simulate an API call
     setTimeout(() => {
       const newCommentData = {
         id: Date.now(),
         author: {
-          name: user.displayName || 'Usuário',
+          name: user.displayName || 'User',
           avatarUrl: user.photoURL || '',
           imageHint: 'person face',
         },
         text: newComment,
-        timestamp: 'Agora mesmo',
+        timestamp: 'Just now',
       };
       setComments([newCommentData, ...comments]);
       setNewComment('');
@@ -63,7 +63,7 @@ export function Comments() {
 
   return (
     <div className="space-y-8">
-      <h2 className="text-2xl font-bold tracking-tight">Comentários ({comments.length})</h2>
+      <h2 className="text-2xl font-bold tracking-tight">Comments ({comments.length})</h2>
       
       {user && (
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -74,7 +74,7 @@ export function Comments() {
             </Avatar>
             <div className="flex-1">
               <Textarea
-                placeholder="Adicionar um comentário..."
+                placeholder="Add a comment..."
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value)}
                 className="w-full"
@@ -83,7 +83,7 @@ export function Comments() {
               />
               <div className="mt-2 flex justify-end">
                 <Button type="submit" disabled={!newComment.trim() || isSubmitting}>
-                  {isSubmitting ? 'Comentando...' : 'Comentar'}
+                  {isSubmitting ? 'Commenting...' : 'Comment'}
                 </Button>
               </div>
             </div>

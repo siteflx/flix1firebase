@@ -52,11 +52,11 @@ function HomePageContent() {
                   <PromoBanner />
                   <TopCreatorsCarousel />
                   <div className="space-y-4">
-                    <h2 className="text-2xl font-bold tracking-tight">Destaques da Semana</h2>
+                    <h2 className="text-2xl font-bold tracking-tight">Highlights of the Week</h2>
                     <SecondaryHeroBanner />
                      <div className="text-center pt-8">
-                        <h3 className="text-2xl font-bold tracking-tight">Junte-se à Nossa Comunidade e Sinta o Prazer da Liberdade</h3>
-                        <p className="text-muted-foreground mt-2">Acesse tudo sem restrições e aproveite cada momento ao máximo.</p>
+                        <h3 className="text-2xl font-bold tracking-tight">Join Our Community and Feel the Pleasure of Freedom</h3>
+                        <p className="text-muted-foreground mt-2">Access everything without restrictions and enjoy every moment to the fullest.</p>
                     </div>
                   </div>
                 </div>

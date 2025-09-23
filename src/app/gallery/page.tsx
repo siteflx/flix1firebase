@@ -24,7 +24,7 @@ function GalleryCard({ imageKey, index }: { imageKey: string; index: number }) {
       <div className="relative aspect-[9/14] w-full overflow-hidden rounded-lg bg-muted shadow-lg">
         <Image
           src={imageUrl}
-          alt="Foto da Galeria"
+          alt="Gallery Photo"
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
@@ -48,13 +48,13 @@ export default function GalleryPage() {
           >
             <Link href="/" className="inline-flex items-center gap-2 text-foreground/80 hover:text-foreground">
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Voltar para o Início
+                Back to Home
             </Link>
           </Button>
         </div>
       <div className="mx-auto max-w-7xl">
         <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-          Galeria
+          Gallery
         </h1>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6">
           {galleryImages.map((image, index) => (

@@ -1,6 +1,6 @@
 
-// A página /join foi desativada e seu conteúdo movido para um popup global.
-// A lógica de redirecionamento agora é tratada pelo popup de assinatura.
+// The /join page has been disabled and its content moved to a global popup.
+// The redirection logic is now handled by the subscription popup.
 export default function JoinPage() {
     return null;
 }

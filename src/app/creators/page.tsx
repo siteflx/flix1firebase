@@ -1,4 +1,3 @@
-
 // src/app/creators/page.tsx
 "use client";
 
@@ -20,7 +19,7 @@ function LockedContentCard() {
                 <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-muted shadow-lg">
                 <Image
                     src={imageUrl}
-                    alt="Conteúdo Premium"
+                    alt="Premium Content"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover grayscale transition-transform duration-300 ease-in-out group-hover:scale-105"
@@ -30,7 +29,7 @@ function LockedContentCard() {
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
                     <Lock className="h-10 w-10 drop-shadow-lg" />
                     <h3 className="mt-4 text-xl font-bold drop-shadow-lg">
-                    Assinatura Premium
+                    Premium Subscription
                     </h3>
                 </div>
                 </div>
@@ -51,12 +50,12 @@ export default function CreatorsPage() {
             className="pl-1"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Voltar para o Início
+            Back to Home
           </Button>
         </div>
       <div className="mx-auto max-w-7xl">
         <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-8 text-center md:text-left">
-          Conteúdo Exclusivo de Criadores
+          Exclusive Creator Content
         </h1>
         <div className="flex flex-col items-center gap-8">
           {lockedItems.map((item) => (

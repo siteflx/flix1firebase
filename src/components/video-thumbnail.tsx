@@ -36,7 +36,7 @@ export function VideoThumbnail({ video, aspectRatio, rank }: VideoThumbnailProps
             {rank && video.genre === 'action movie' && (
                  <div className="absolute top-2 right-2">
                     <Button variant="destructive" size="sm" className="h-6 px-2 text-xs" asChild={false}>
-                        Gratis
+                        Free
                     </Button>
                 </div>
             )}

@@ -18,44 +18,44 @@ import { useSubscriptionPopup } from '@/hooks/use-subscription-popup';
 const creators = [
   {
     id: 'creator-1',
-    name: 'Criador 1',
-    handle: '@criador1',
+    name: 'Creator 1',
+    handle: '@creator1',
     imageKey: 'featured-creator-1',
   },
   {
     id: 'creator-2',
-    name: 'Criador 2',
-    handle: '@criador2',
+    name: 'Creator 2',
+    handle: '@creator2',
     imageKey: 'featured-creator-2',
   },
   {
     id: 'creator-3',
-    name: 'Criador 3',
-    handle: '@criador3',
+    name: 'Creator 3',
+    handle: '@creator3',
     imageKey: 'featured-creator-3',
   },
   {
     id: 'creator-4',
-    name: 'Criador 4',
-    handle: '@criador4',
+    name: 'Creator 4',
+    handle: '@creator4',
     imageKey: 'featured-creator-4',
   },
   {
     id: 'creator-5',
-    name: 'Criador 5',
-    handle: '@criador5',
+    name: 'Creator 5',
+    handle: '@creator5',
     imageKey: 'featured-creator-5',
   },
   {
     id: 'creator-6',
-    name: 'Criador 6',
-    handle: '@criador6',
+    name: 'Creator 6',
+    handle: '@creator6',
     imageKey: 'featured-creator-6',
   },
   {
     id: 'creator-7',
-    name: 'Criador 7',
-    handle: '@criador7',
+    name: 'Creator 7',
+    handle: '@creator7',
     imageKey: 'placeholder-creator-7',
   },
 ];
@@ -69,7 +69,7 @@ interface CreatorCardProps {
 function CreatorCard({ name, handle, imageKey }: CreatorCardProps) {
   const { setIsOpen } = useSubscriptionPopup();
   const creatorImage = placeholderData.placeholderImages.find(img => img.id === imageKey);
-  // Use um placeholder genérico caso a imagem específica não seja encontrada
+  // Use a generic placeholder if the specific image is not found
   const imageUrl = creatorImage?.imageUrl || `https://picsum.photos/seed/${imageKey}/400/600`;
   const imageHint = creatorImage?.imageHint || 'person portrait';
 
@@ -95,14 +95,14 @@ export function FeaturedCreatorsCarousel() {
     <section className="space-y-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-            <h2 className="text-2xl font-bold tracking-tight">Destaque mais assistidos</h2>
+            <h2 className="text-2xl font-bold tracking-tight">Most Watched Highlights</h2>
             <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
                 <Eye className="h-4 w-4" /> 
-                <span>+8.786</span>
+                <span>+8,786</span>
             </div>
         </div>
         <Link href="/creators" className="flex items-center text-sm text-muted-foreground hover:text-primary">
-            <span>Ver todos</span>
+            <span>View All</span>
             <ChevronRight className="h-4 w-4" />
         </Link>
       </div>

@@ -25,10 +25,10 @@ import { useToast } from '@/hooks/use-toast';
 import { Clapperboard } from 'lucide-react';
 
 const formSchema = z.object({
-  fullName: z.string().min(1, { message: 'O nome completo é obrigatório.' }),
-  phone: z.string().min(1, { message: 'O telefone é obrigatório.' }),
-  email: z.string().email({ message: 'Por favor, insira um email válido.' }),
-  password: z.string().min(6, { message: 'A senha deve ter no mínimo 6 caracteres.' }),
+  fullName: z.string().min(1, { message: 'Full name is required.' }),
+  phone: z.string().min(1, { message: 'Phone number is required.' }),
+  email: z.string().email({ message: 'Please enter a valid email.' }),
+  password: z.string().min(6, { message: 'Password must be at least 6 characters.' }),
 });
 
 export default function SignupPage() {
@@ -59,8 +59,8 @@ export default function SignupPage() {
       router.push('/');
     } catch (error: any) {
       toast({
-        title: 'Erro de Cadastro',
-        description: 'Não foi possível criar a conta. Verifique os dados ou tente um email diferente.',
+        title: 'Signup Error',
+        description: 'Could not create account. Please check your details or try a different email.',
         variant: 'destructive',
       });
     } finally {
@@ -72,7 +72,7 @@ export default function SignupPage() {
     <main className="relative min-h-screen w-full">
        <Image
         src="https://storage.googleapis.com/projeto--02/Screenshot_20250916_225546_Chrome%20(1).jpg"
-        alt="Plano de fundo"
+        alt="Background"
         fill
         className="object-cover grayscale"
         data-ai-hint="abstract background"
@@ -84,8 +84,8 @@ export default function SignupPage() {
             <div className="flex justify-center mb-4">
               <Clapperboard className="h-10 w-10 text-primary" />
             </div>
-            <CardTitle className="text-2xl font-bold tracking-tight">Criar uma conta</CardTitle>
-            <CardDescription>Preencha os campos abaixo para começar.</CardDescription>
+            <CardTitle className="text-2xl font-bold tracking-tight">Create an account</CardTitle>
+            <CardDescription>Fill in the fields below to get started.</CardDescription>
           </CardHeader>
           <CardContent>
             <Form {...form}>
@@ -95,9 +95,9 @@ export default function SignupPage() {
                   name="fullName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Nome Completo</FormLabel>
+                      <FormLabel>Full Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Seu nome completo" {...field} />
+                        <Input placeholder="Your full name" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -108,9 +108,9 @@ export default function SignupPage() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Telefone</FormLabel>
+                      <FormLabel>Phone</FormLabel>
                       <FormControl>
-                        <Input placeholder="(00) 00000-0000" {...field} />
+                        <Input placeholder="(000) 000-0000" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -123,7 +123,7 @@ export default function SignupPage() {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="seuemail@exemplo.com" {...field} />
+                        <Input placeholder="youremail@example.com" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -134,23 +134,23 @@ export default function SignupPage() {
                   name="password"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Senha</FormLabel>
+                      <FormLabel>Password</FormLabel>
                       <FormControl>
-                        <Input type="password" placeholder="Crie uma senha forte" {...field} />
+                        <Input type="password" placeholder="Create a strong password" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
                 <Button type="submit" className="w-full" disabled={loading}>
-                  {loading ? 'Criando conta...' : 'Criar Conta'}
+                  {loading ? 'Creating account...' : 'Create Account'}
                 </Button>
               </form>
             </Form>
              <p className="mt-6 text-center text-sm text-muted-foreground">
-              Já tem uma conta?{' '}
+              Already have an account?{' '}
               <Link href="/login" className="font-semibold text-primary hover:underline">
-                Entrar
+                Sign In
               </Link>
             </p>
           </CardContent>

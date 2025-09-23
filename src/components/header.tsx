@@ -72,16 +72,16 @@ export function Header() {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-                <DropdownMenuLabel>Minha Conta</DropdownMenuLabel>
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <div className="px-2 py-1.5 text-sm">
-                    <p className="font-medium">{user.displayName || "Usuário"}</p>
+                    <p className="font-medium">{user.displayName || "User"}</p>
                     <p className="text-xs text-muted-foreground">{user.email}</p>
                 </div>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleSignOut}>
                     <LogOut className="mr-2 h-4 w-4" />
-                    <span>Sair</span>
+                    <span>Sign Out</span>
                 </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

@@ -79,13 +79,13 @@ function SearchDialog() {
     <Dialog open={isOpen} onOpenChange={setOpen}>
       <DialogContent className="sm:max-w-[625px] p-0 gap-0">
         <DialogHeader className="p-4 border-b">
-           <DialogTitle className="sr-only">Pesquisar</DialogTitle>
+           <DialogTitle className="sr-only">Search</DialogTitle>
           <div className="flex items-center gap-2">
             <Search className="h-5 w-5 text-muted-foreground" />
             <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Pesquisar por filmes ou séries..."
+              placeholder="Search for movies or series..."
               className="border-none focus-visible:ring-0 shadow-none text-base"
             />
           </div>
@@ -116,7 +116,7 @@ function SearchDialog() {
               ))}
             </div>
           ) : (
-            debouncedQuery && <p className="text-center text-muted-foreground py-8">Nenhum resultado encontrado.</p>
+            debouncedQuery && <p className="text-center text-muted-foreground py-8">No results found.</p>
           )}
         </div>
       </DialogContent>

@@ -18,7 +18,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-body' });
 
 export const metadata: Metadata = {
   title: 'Flick Carousel',
-  description: 'Uma experiência de navegação de vídeo no estilo Netflix.',
+  description: 'A Netflix-style video browsing experience.',
 };
 
 export const viewport: Viewport = {
@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="dark">
+    <html lang="en" className="dark">
       <head>
         <Script
           async

@@ -17,49 +17,49 @@ export default function PrivacyPolicyPage() {
             className="pl-1"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Voltar
+            Back
           </Button>
         </div>
         <div className="space-y-6">
           <h1 className="text-4xl font-bold tracking-tight">
-            Política de Privacidade
+            Privacy Policy
           </h1>
           <p className="text-lg text-muted-foreground">
-            Última atualização: {new Date().toLocaleDateString('pt-BR')}
+            Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
           </p>
 
-          <h2 className="pt-4 text-2xl font-semibold">1. Introdução</h2>
+          <h2 className="pt-4 text-2xl font-semibold">1. Introduction</h2>
           <p>
-            Bem-vindo ao Flick Carousel. Sua privacidade é importante para nós. Esta Política de Privacidade explica como coletamos, usamos, divulgamos e protegemos suas informações quando você utiliza nosso site. Ao usar o Flick Carousel, você concorda com a coleta e uso de informações de acordo com esta política.
+            Welcome to Flick Carousel. Your privacy is important to us. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website. By using Flick Carousel, you agree to the collection and use of information in accordance with this policy.
           </p>
 
-          <h2 className="pt-4 text-2xl font-semibold">2. Informações que Coletamos</h2>
+          <h2 className="pt-4 text-2xl font-semibold">2. Information We Collect</h2>
           <p>
-            Podemos coletar informações pessoalmente identificáveis, como seu nome, endereço de e-mail e informações de pagamento, quando você se registra ou assina nossos serviços. Também coletamos informações não pessoais, como dados de uso e preferências.
+            We may collect personally identifiable information, such as your name, email address, and payment information, when you register or subscribe to our services. We also collect non-personal information, such as usage data and preferences.
           </p>
 
-          <h2 className="pt-4 text-2xl font-semibold">3. Como Usamos Suas Informações</h2>
+          <h2 className="pt-4 text-2xl font-semibold">3. How We Use Your Information</h2>
           <p>
-            Usamos as informações que coletamos para:
+            We use the information we collect to:
           </p>
           <ul className="list-disc space-y-2 pl-6">
-            <li>Fornecer, operar e manter nosso serviço.</li>
-            <li>Melhorar, personalizar e expandir nosso serviço.</li>
-            <li>Entender e analisar como você usa nosso serviço.</li>
-            <li>Desenvolver novos produtos, serviços, recursos e funcionalidades.</li>
-            <li>Comunicar com você, seja diretamente ou através de um de nossos parceiros, incluindo para atendimento ao cliente, para fornecer atualizações e outras informações relacionadas ao serviço, e para fins de marketing e promocionais.</li>
-            <li>Processar suas transações.</li>
-            <li>Encontrar e prevenir fraudes.</li>
+            <li>Provide, operate, and maintain our service.</li>
+            <li>Improve, personalize, and expand our service.</li>
+            <li>Understand and analyze how you use our service.</li>
+            <li>Develop new products, services, features, and functionality.</li>
+            <li>Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the service, and for marketing and promotional purposes.</li>
+            <li>Process your transactions.</li>
+            <li>Find and prevent fraud.</li>
           </ul>
 
-          <h2 className="pt-4 text-2xl font-semibold">4. Segurança dos Dados</h2>
+          <h2 className="pt-4 text-2xl font-semibold">4. Data Security</h2>
           <p>
-            A segurança de seus dados é uma prioridade para nós, mas lembre-se que nenhum método de transmissão pela Internet ou método de armazenamento eletrônico é 100% seguro. Embora nos esforcemos para usar meios comercialmente aceitáveis para proteger suas informações pessoais, não podemos garantir sua segurança absoluta.
+            The security of your data is a priority for us, but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.
           </p>
           
-          <h2 className="pt-4 text-2xl font-semibold">5. Contato</h2>
+          <h2 className="pt-4 text-2xl font-semibold">5. Contact Us</h2>
           <p>
-            Se você tiver alguma dúvida sobre esta Política de Privacidade, entre em contato conosco pelo e-mail: contato@flickcarousel.com.
+            If you have any questions about this Privacy Policy, please contact us by email: contact@flickcarousel.com.
           </p>
         </div>
       </div>

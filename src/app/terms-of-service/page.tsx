@@ -17,45 +17,45 @@ export default function TermsOfServicePage() {
             className="pl-1"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Voltar
+            Back
           </Button>
         </div>
         <div className="space-y-6">
           <h1 className="text-4xl font-bold tracking-tight">
-            Termos de Serviço
+            Terms of Service
           </h1>
           <p className="text-lg text-muted-foreground">
-            Última atualização: {new Date().toLocaleDateString('pt-BR')}
+            Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
           </p>
 
-          <h2 className="pt-4 text-2xl font-semibold">1. Aceitação dos Termos</h2>
+          <h2 className="pt-4 text-2xl font-semibold">1. Acceptance of Terms</h2>
           <p>
-            Ao acessar e usar o Flick Carousel, você aceita e concorda em estar vinculado pelos termos e disposições deste acordo. Além disso, ao usar esses serviços específicos, você estará sujeito a quaisquer diretrizes ou regras postadas aplicáveis a tais serviços.
+            By accessing and using Flick Carousel, you accept and agree to be bound by the terms and provisions of this agreement. In addition, when using these particular services, you shall be subject to any posted guidelines or rules applicable to such services.
           </p>
 
-          <h2 className="pt-4 text-2xl font-semibold">2. Descrição do Serviço</h2>
+          <h2 className="pt-4 text-2xl font-semibold">2. Description of Service</h2>
           <p>
-            O Flick Carousel fornece aos usuários acesso a uma coleção de conteúdo de vídeo por streaming. Você é responsável por obter acesso ao serviço, e esse acesso pode envolver taxas de terceiros (como provedor de Internet ou taxas de tempo de antena).
+            Flick Carousel provides users with access to a collection of streaming video content. You are responsible for obtaining access to the service, and that access may involve third-party fees (such as Internet service provider or airtime charges).
           </p>
 
-          <h2 className="pt-4 text-2xl font-semibold">3. Conduta do Usuário</h2>
+          <h2 className="pt-4 text-2xl font-semibold">3. User Conduct</h2>
           <p>
-            Você concorda em não usar o serviço para:
+            You agree not to use the service to:
           </p>
           <ul className="list-disc space-y-2 pl-6">
-            <li>Violar qualquer lei local, estadual, nacional ou internacional.</li>
-            <li>Transmitir qualquer material que seja ilegal, prejudicial, ameaçador, abusivo, difamatório, vulgar, obsceno ou de outra forma questionável.</li>
-            <li>Personificar qualquer pessoa ou entidade, ou declarar falsamente ou deturpar sua afiliação com uma pessoa ou entidade.</li>
+            <li>Violate any local, state, national, or international law.</li>
+            <li>Transmit any material that is unlawful, harmful, threatening, abusive, defamatory, vulgar, obscene, or otherwise objectionable.</li>
+            <li>Impersonate any person or entity, or falsely state or otherwise misrepresent your affiliation with a person or entity.</li>
           </ul>
 
-          <h2 className="pt-4 text-2xl font-semibold">4. Rescisão</h2>
+          <h2 className="pt-4 text-2xl font-semibold">4. Termination</h2>
           <p>
-            Podemos rescindir ou suspender o acesso ao nosso serviço imediatamente, sem aviso prévio ou responsabilidade, por qualquer motivo, incluindo, sem limitação, se você violar os Termos.
+            We may terminate or suspend access to our service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
           </p>
 
-          <h2 className="pt-4 text-2xl font-semibold">5. Contato</h2>
+          <h2 className="pt-4 text-2xl font-semibold">5. Contact</h2>
           <p>
-            Se você tiver alguma dúvida sobre estes Termos de Serviço, entre em contato conosco pelo e-mail: contato@flickcarousel.com.
+            If you have any questions about these Terms of Service, please contact us by email: contact@flickcarousel.com.
           </p>
         </div>
       </div>

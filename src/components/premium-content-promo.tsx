@@ -29,7 +29,7 @@ function PromoCard() {
             <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-muted shadow-lg">
                 <Image
                     src={imageUrl}
-                    alt="Conteúdo Premium"
+                    alt="Premium Content"
                     fill
                     className="object-cover grayscale transition-transform duration-300 ease-in-out group-hover:scale-105"
                     data-ai-hint="woman portrait"
@@ -38,7 +38,7 @@ function PromoCard() {
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
                     <Lock className="h-10 w-10 drop-shadow-lg" />
                     <h3 className="mt-4 text-xl font-bold drop-shadow-lg">
-                    Assinatura Premium
+                    Premium Subscription
                     </h3>
                 </div>
             </div>

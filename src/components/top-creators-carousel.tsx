@@ -23,7 +23,7 @@ const newCreatorImages = [
   'https://storage.googleapis.com/audiossswe/5.6.png'
 ];
 
-// Vamos criar 9 criadores, mas ciclar pelas 6 imagens
+// Let's create 9 creators, but cycle through the 6 images
 const creators = Array.from({ length: 9 }, (_, i) => ({ 
   id: `creator-${i + 1}`,
   imageUrl: newCreatorImages[i % newCreatorImages.length],
@@ -39,7 +39,7 @@ function CreatorCard({ imageUrl }: { imageUrl: string }) {
       <div className="relative aspect-[9/14] w-full overflow-hidden rounded-lg bg-muted shadow-lg">
         <Image
           src={imageUrl}
-          alt="Conteúdo Premium"
+          alt="Premium Content"
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, (max-width: 1280px) 20vw, 16.6vw"
           className="object-cover grayscale transition-transform duration-300 ease-in-out group-hover:scale-110"
@@ -49,7 +49,7 @@ function CreatorCard({ imageUrl }: { imageUrl: string }) {
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
             <Lock className="h-10 w-10 drop-shadow-lg" />
             <Button variant="default" className="mt-6" onClick={(e) => { e.stopPropagation(); setIsOpen(true); }}>
-              Assinar
+              Subscribe
             </Button>
         </div>
       </div>
@@ -63,7 +63,7 @@ export function TopCreatorsCarousel() {
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold tracking-tight">Top Creators</h2>
         <Link href="/top-creators" className="flex items-center text-sm text-muted-foreground hover:text-primary">
-            <span>Ver todos</span>
+            <span>View All</span>
             <ChevronRight className="h-4 w-4" />
         </Link>
       </div>

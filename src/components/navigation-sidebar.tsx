@@ -60,7 +60,7 @@ export function NavigationSidebar() {
                   className='justify-start w-full'
                 >
                   <Gem />
-                  <span>Assinatura</span>
+                  <span>Subscription</span>
                 </SidebarMenuButton>
           </SidebarMenuItem>
            <SidebarMenuItem>
@@ -73,13 +73,13 @@ export function NavigationSidebar() {
                   })}
                 >
                   <ImageIcon />
-                  <span>Galeria</span>
+                  <span>Gallery</span>
                 </SidebarMenuButton>
             </Link>
           </SidebarMenuItem>
         </SidebarMenu>
         <SidebarHeader>
-          <h3 className="text-lg font-semibold pl-2">Categorias</h3>
+          <h3 className="text-lg font-semibold pl-2">Categories</h3>
         </SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -92,7 +92,7 @@ export function NavigationSidebar() {
                   })}
                 >
                   <Play className="text-primary" />
-                  <span>Todas</span>
+                  <span>All</span>
                 </SidebarMenuButton>
             </Link>
           </SidebarMenuItem>

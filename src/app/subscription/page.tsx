@@ -1,5 +1,5 @@
 
-// Esta página foi desativada. A lógica de assinatura agora está em um popup global.
+// This page has been disabled. The subscription logic is now in a global popup.
 export default function SubscriptionPage() {
     return null;
 }

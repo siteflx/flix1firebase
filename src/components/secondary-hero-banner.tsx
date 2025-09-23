@@ -18,20 +18,20 @@ import {
 
 const bannerItems = [
   {
-    title: 'Visuais Impactantes',
-    description: 'Experimente a força da narrativa em preto e branco.',
+    title: 'Striking Visuals',
+    description: 'Experience the power of storytelling in black and white.',
     imageUrl: 'https://storage.googleapis.com/audiossswe/5.7.png',
     imageHint: 'woman artistic',
   },
   {
-    title: 'Momentos Atemporais',
-    description: 'A ausência de cor revela a verdadeira essência de cada cena.',
+    title: 'Timeless Moments',
+    description: 'The absence of color reveals the true essence of each scene.',
     imageUrl: 'https://storage.googleapis.com/audiossswe/5.8.png',
     imageHint: 'woman style',
   },
   {
-    title: 'Estilo e Sofisticação',
-    description: 'Uma coleção exclusiva que celebra a beleza da fotografia monocromática.',
+    title: 'Style and Sophistication',
+    description: 'An exclusive collection that celebrates the beauty of monochrome photography.',
     imageUrl: 'https://storage.googleapis.com/audiossswe/5.9.png',
     imageHint: 'fashion model',
   },
@@ -71,12 +71,12 @@ export function SecondaryHeroBanner() {
                     <Button size="lg" asChild>
                       <Link href="/top-creators">
                         <PlayCircle className="mr-2" />
-                        Assistir
+                        Watch
                       </Link>
                     </Button>
                     <Button size="lg" variant="secondary" onClick={() => setIsOpen(true)}>
                       <Info className="mr-2" />
-                      Mais informações
+                      More Info
                     </Button>
                   </div>
                 </div>

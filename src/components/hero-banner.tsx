@@ -18,20 +18,20 @@ import {
 
 const bannerItems = [
   {
-    title: 'Novos Olhares, Novas Histórias',
-    description: 'Explore narrativas que capturam a essência de momentos únicos e inesquecíveis.',
+    title: 'New Looks, New Stories',
+    description: 'Explore narratives that capture the essence of unique and unforgettable moments.',
     imageUrl: 'https://storage.googleapis.com/audiossswe/foto%202.png',
     imageHint: 'woman portrait',
   },
   {
-    title: 'A Beleza em Cada Detalhe',
-    description: 'Descubra a arte por trás das câmeras com uma qualidade de imagem que vai te surpreender.',
+    title: 'Beauty in Every Detail',
+    description: 'Discover the art behind the cameras with image quality that will surprise you.',
     imageUrl: 'https://storage.googleapis.com/audiossswe/foto%202.png',
     imageHint: 'cinematic scene',
   },
   {
-    title: 'Uma Janela para Outros Mundos',
-    description: 'Deixe-se levar por histórias que transportam você para novas realidades e emoções.',
+    title: 'A Window to Other Worlds',
+    description: 'Let yourself be carried away by stories that transport you to new realities and emotions.',
     imageUrl: 'https://storage.googleapis.com/audiossswe/foto%202.png',
     imageHint: 'dramatic look',
   },
@@ -69,12 +69,12 @@ export function HeroBanner() {
                     <Button size="lg" asChild>
                       <Link href="/top-creators">
                         <PlayCircle className="mr-2" />
-                        Assistir
+                        Watch
                       </Link>
                     </Button>
                     <Button size="lg" variant="secondary" onClick={() => setIsOpen(true)}>
                       <Info className="mr-2" />
-                      Mais informações
+                      More Info
                     </Button>
                   </div>
                 </div>

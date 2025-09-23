@@ -11,14 +11,14 @@ export function Footer() {
         </div>
         <nav className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground sm:gap-6">
           <Link href="/terms-of-service" className="hover:text-primary hover:underline">
-            Termos de Serviço
+            Terms of Service
           </Link>
           <Link href="/privacy-policy" className="hover:text-primary hover:underline">
-            Política de Privacidade
+            Privacy Policy
           </Link>
         </nav>
         <p className="text-center text-sm text-muted-foreground sm:text-left">
-          © {new Date().getFullYear()} Flick Carousel. Todos os direitos reservados.
+          © {new Date().getFullYear()} Flick Carousel. All rights reserved.
         </p>
       </div>
     </footer>

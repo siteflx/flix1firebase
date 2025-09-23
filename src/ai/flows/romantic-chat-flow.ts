@@ -1,1 +1,1 @@
-// Este arquivo foi desativado.
+// This file has been disabled.

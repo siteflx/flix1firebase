@@ -19,7 +19,7 @@ export default function WatchPage({ params }: { params: { id: string } }) {
         <Button asChild variant="ghost" className="pl-1">
           <Link href="/" className="inline-flex items-center gap-2 text-foreground/80 hover:text-foreground">
             <ArrowLeft className="h-4 w-4" />
-            Voltar para a navegação
+            Back to browsing
           </Link>
         </Button>
       </div>
