@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="dark">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-BBVNGL2BHY"
