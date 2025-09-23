@@ -1,4 +1,6 @@
 
+"use client";
+
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -11,6 +13,7 @@ import {
 import placeholderData from '@/lib/placeholder-images.json';
 import { ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useSubscriptionPopup } from '@/hooks/use-subscription-popup';
 
 const creators = [
   {
@@ -64,13 +67,14 @@ interface CreatorCardProps {
 }
 
 function CreatorCard({ name, handle, imageKey }: CreatorCardProps) {
+  const { setIsOpen } = useSubscriptionPopup();
   const creatorImage = placeholderData.placeholderImages.find(img => img.id === imageKey);
   // Use um placeholder genérico caso a imagem específica não seja encontrada
   const imageUrl = creatorImage?.imageUrl || `https://picsum.photos/seed/${imageKey}/400/600`;
   const imageHint = creatorImage?.imageHint || 'person portrait';
 
   return (
-    <Link href="#" className="block group">
+    <div onClick={() => setIsOpen(true)} className="block group cursor-pointer">
       <div className="relative aspect-[9/14] w-full overflow-hidden rounded-lg bg-muted shadow-lg">
         <Image
           src={imageUrl}
@@ -82,7 +86,7 @@ function CreatorCard({ name, handle, imageKey }: CreatorCardProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
       </div>
-    </Link>
+    </div>
   );
 }
 
