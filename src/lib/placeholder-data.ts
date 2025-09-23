@@ -17,7 +17,7 @@ export interface CarouselCategory {
 
 const genres = [
   { id: 'action', name: 'Destaque videos gratis', hint: 'action movie' },
-  { id: 'comedy', name: 'Destaque', hint: 'comedy movie' },
+  { id: 'comedy', name: 'Destaques', hint: 'comedy movie' },
 ];
 
 const newActionThumbnails = [
