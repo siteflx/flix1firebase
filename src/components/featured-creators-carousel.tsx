@@ -77,6 +77,7 @@ function CreatorCard({ rank, name, handle, imageKey }: CreatorCardProps) {
           src={imageUrl}
           alt={name}
           fill
+          sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, (max-width: 1280px) 20vw, 16.6vw"
           className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
           data-ai-hint={imageHint}
         />
