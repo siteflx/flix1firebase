@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { type Video } from '@/lib/placeholder-data';
 import { PlayCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Button } from './ui/button';
 
 interface VideoThumbnailProps {
   video: Video;
@@ -34,9 +35,9 @@ export function VideoThumbnail({ video, aspectRatio, rank }: VideoThumbnailProps
 
             {rank && video.genre === 'action movie' && (
                  <div className="absolute top-2 right-2">
-                    <span className="text-red-500 font-black text-2xl" style={{ WebkitTextStroke: '1px white' }}>
+                    <Button variant="destructive" size="sm" className="h-6 px-2 text-xs" asChild={false}>
                         Gratis
-                    </span>
+                    </Button>
                 </div>
             )}
         </div>
