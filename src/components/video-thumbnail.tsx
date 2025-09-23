@@ -32,10 +32,10 @@ export function VideoThumbnail({ video, aspectRatio, rank }: VideoThumbnailProps
                 <PlayCircle className="w-12 h-12 text-white/70 opacity-0 group-hover:opacity-100 transition-opacity transform-gpu group-hover:scale-110" />
             </div>
 
-            {rank && (
-                <div className="absolute -bottom-4 -left-2 w-full h-full flex items-end">
-                    <span className="text-6xl font-black text-white drop-shadow-lg" style={{ WebkitTextStroke: '2px black' }}>
-                        {rank}
+            {rank && video.genre === 'action movie' && (
+                 <div className="absolute top-2 right-2">
+                    <span className="text-red-500 font-black text-2xl" style={{ WebkitTextStroke: '1px white' }}>
+                        Gratis
                     </span>
                 </div>
             )}
