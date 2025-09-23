@@ -21,8 +21,8 @@ export function VideoThumbnail({ video, aspectRatio, rank }: VideoThumbnailProps
           <Image
             src={video.thumbnailUrl}
             alt={video.title}
-            width={aspectRatio === 'portrait' ? 270 : 400}
-            height={aspectRatio === 'portrait' ? 480 : 225}
+            width={aspectRatio === 'portrait' ? 270 : 480}
+            height={aspectRatio === 'portrait' ? 480 : 270}
             className="object-cover w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-110"
             data-ai-hint={video.genre}
           />
@@ -33,8 +33,8 @@ export function VideoThumbnail({ video, aspectRatio, rank }: VideoThumbnailProps
             </div>
 
             {rank && (
-                <div className="absolute top-2 left-2">
-                    <span className="text-2xl font-bold text-white drop-shadow-lg" style={{ WebkitTextStroke: '1px black' }}>
+                <div className="absolute -bottom-4 -left-2 w-full h-full flex items-end">
+                    <span className="text-6xl font-black text-white drop-shadow-lg" style={{ WebkitTextStroke: '2px black' }}>
                         {rank}
                     </span>
                 </div>
