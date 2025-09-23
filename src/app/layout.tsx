@@ -1,4 +1,5 @@
-import type {Metadata} from 'next';
+
+import type {Metadata, Viewport} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Inter } from 'next/font/google';
@@ -17,12 +18,13 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-body' });
 export const metadata: Metadata = {
   title: 'Flick Carousel',
   description: 'Uma experiência de navegação de vídeo no estilo Netflix.',
-  viewport: {
-    width: "device-width",
-    initialScale: 1.0,
-    maximumScale: 1.0,
-    userScalable: false,
-  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+  maximumScale: 1.0,
+  userScalable: false,
 };
 
 export default function RootLayout({
