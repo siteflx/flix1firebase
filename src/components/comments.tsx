@@ -49,7 +49,7 @@ export function Comments() {
         id: Date.now(),
         author: {
           name: user.displayName || 'Usuário',
-          avatarUrl: user.photoURL || `https://picsum.photos/seed/${user.uid}/40/40`,
+          avatarUrl: user.photoURL || '',
           imageHint: 'person face',
         },
         text: newComment,
@@ -69,7 +69,7 @@ export function Comments() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="flex items-start space-x-4">
             <Avatar>
-              <AvatarImage src={user.photoURL || `https://picsum.photos/seed/${user.uid}/40/40`} data-ai-hint="person face" />
+              <AvatarImage src={user.photoURL || ''} data-ai-hint="person face" />
               <AvatarFallback>{user.displayName?.charAt(0) || 'U'}</AvatarFallback>
             </Avatar>
             <div className="flex-1">
