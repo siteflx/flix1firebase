@@ -14,7 +14,7 @@ const galleryImages = [
   { id: 'gallery-6', imageKey: 'gallery-image-6' },
 ];
 
-function GalleryCard({ imageKey }: { imageKey: string }) {
+function GalleryCard({ imageKey, index }: { imageKey: string; index: number }) {
   const imageInfo = placeholderData.placeholderImages.find(img => img.id === imageKey);
   const imageUrl = imageInfo?.imageUrl || `https://picsum.photos/seed/${imageKey}/400/600`;
   const imageHint = imageInfo?.imageHint || 'gallery photo';
@@ -29,6 +29,7 @@ function GalleryCard({ imageKey }: { imageKey: string }) {
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
           data-ai-hint={imageHint}
+          priority={index < 4}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       </div>
@@ -56,8 +57,8 @@ export default function GalleryPage() {
           Galeria
         </h1>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6">
-          {galleryImages.map((image) => (
-            <GalleryCard key={image.id} imageKey={image.imageKey} />
+          {galleryImages.map((image, index) => (
+            <GalleryCard key={image.id} imageKey={image.imageKey} index={index} />
           ))}
         </div>
       </div>
