@@ -12,6 +12,7 @@ import { PromoBanner } from '@/components/promo-banner';
 import { TopCreatorsCarousel } from '@/components/top-creators-carousel';
 import { FeaturedCreatorsCarousel } from '@/components/featured-creators-carousel';
 import { PremiumContentPromo } from '@/components/premium-content-promo';
+import { SecondaryHeroBanner } from '@/components/secondary-hero-banner';
 
 function HomePageContent() {
   const { user, loading } = useAuth();
@@ -48,6 +49,7 @@ function HomePageContent() {
                 <div className="pt-12 space-y-12">
                   <PromoBanner />
                   <TopCreatorsCarousel />
+                  <SecondaryHeroBanner />
                 </div>
               )}
             </div>
