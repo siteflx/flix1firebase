@@ -36,7 +36,7 @@ function LockedContentCard() {
                     Desbloqueie este e todo o conteúdo com um de nossos planos.
                     </p>
                     <Button variant="primary" className="mt-6" onClick={(e) => { e.stopPropagation(); setIsOpen(true); }}>
-                        Ver Planos
+                        Assinar
                     </Button>
                 </div>
                 </div>
