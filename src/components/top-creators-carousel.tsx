@@ -11,27 +11,29 @@ import {
 import { ChevronRight, Lock } from 'lucide-react';
 import { Button } from './ui/button';
 
-const creators = [
-  { id: 'creator-1' },
-  { id: 'creator-2' },
-  { id: 'creator-3' },
-  { id: 'creator-4' },
-  { id: 'creator-5' },
-  { id: 'creator-6' },
-  { id: 'creator-7' },
-  { id: 'creator-8' },
-  { id: 'creator-9' },
+const newCreatorImages = [
+  'https://storage.googleapis.com/audiossswe/5.1.png',
+  'https://storage.googleapis.com/audiossswe/5.3.png',
+  'https://storage.googleapis.com/audiossswe/5.4.png',
+  'https://storage.googleapis.com/audiossswe/5.png',
+  'https://storage.googleapis.com/audiossswe/5.6.png',
+  'https://storage.googleapis.com/audiossswe/5.6.png'
 ];
 
-const sharedImageUrl = "https://storage.googleapis.com/audiossswe/foto%203%20(6).png";
+// Vamos criar 9 criadores, mas ciclar pelas 6 imagens
+const creators = Array.from({ length: 9 }, (_, i) => ({ 
+  id: `creator-${i + 1}`,
+  imageUrl: newCreatorImages[i % newCreatorImages.length],
+}));
+
 const imageHint = "woman fashion";
 
-function CreatorCard() {
+function CreatorCard({ imageUrl }: { imageUrl: string }) {
   return (
-    <Link href="/subscription" className="block group">
+    <Link href="/join" className="block group">
       <div className="relative aspect-[9/14] w-full overflow-hidden rounded-lg bg-muted shadow-lg">
         <Image
-          src={sharedImageUrl}
+          src={imageUrl}
           alt="Conteúdo Premium"
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, (max-width: 1280px) 20vw, 16.6vw"
@@ -55,7 +57,7 @@ export function TopCreatorsCarousel() {
     <section className="space-y-4">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold tracking-tight">Top Creators</h2>
-        <Link href="#" className="flex items-center text-sm text-muted-foreground hover:text-primary">
+        <Link href="/top-creators" className="flex items-center text-sm text-muted-foreground hover:text-primary">
             <span>Ver todos</span>
             <ChevronRight className="h-4 w-4" />
         </Link>
@@ -71,7 +73,7 @@ export function TopCreatorsCarousel() {
         <CarouselContent className="-ml-2">
           {creators.map((creator) => (
             <CarouselItem key={creator.id} className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 pl-2">
-              <CreatorCard />
+              <CreatorCard imageUrl={creator.imageUrl} />
             </CarouselItem>
           ))}
         </CarouselContent>
