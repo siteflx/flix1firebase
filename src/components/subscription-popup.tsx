@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Gem } from 'lucide-react';
 import { useSubscriptionPopup } from '@/hooks/use-subscription-popup';
 
-const externalLink = "https://www.youtube.com/watch?v=fuMYUadwFXM&list=RDTBvN4manm10&index=2";
+const externalLink = "https://buy.stripe.com/4gMcMZ8E0b2X4430qHe3e02";
 
 export function SubscriptionPopup() {
   const { isOpen, setIsOpen } = useSubscriptionPopup();
