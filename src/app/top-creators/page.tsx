@@ -1,4 +1,3 @@
-
 // src/app/top-creators/page.tsx
 "use client";
 
@@ -43,12 +42,6 @@ function LockedContentCard({ imageUrl }: { imageUrl: string }) {
                     <h3 className="mt-4 text-xl font-bold drop-shadow-lg">
                     Assinatura Premium
                     </h3>
-                    <p className="mt-1 text-sm text-white/90 drop-shadow-md text-center">
-                    Desbloqueie este e todo o conteúdo com um de nossos planos.
-                    </p>
-                    <Button variant="secondary" className="mt-6" onClick={(e) => { e.stopPropagation(); setIsOpen(true); }}>
-                        Ver Planos
-                    </Button>
                 </div>
                 </div>
             </div>
