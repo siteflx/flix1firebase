@@ -5,9 +5,9 @@ import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Autoplay from "embla-carousel-autoplay";
-
 import { Button } from './ui/button';
 import { PlayCircle, Info } from 'lucide-react';
+import { useSubscriptionPopup } from '@/hooks/use-subscription-popup';
 import {
   Carousel,
   CarouselContent,
@@ -41,7 +41,8 @@ const bannerItems = [
 export function SecondaryHeroBanner() {
   const plugin = React.useRef(
     Autoplay({ delay: 5000, stopOnInteraction: true })
-  )
+  );
+  const { setIsOpen } = useSubscriptionPopup();
 
   return (
     <div className="relative w-full">
@@ -73,11 +74,9 @@ export function SecondaryHeroBanner() {
                         Assistir
                       </Link>
                     </Button>
-                    <Button size="lg" variant="secondary" asChild>
-                      <Link href="/subscription">
-                        <Info className="mr-2" />
-                        Mais informações
-                      </Link>
+                    <Button size="lg" variant="secondary" onClick={() => setIsOpen(true)}>
+                      <Info className="mr-2" />
+                      Mais informações
                     </Button>
                   </div>
                 </div>

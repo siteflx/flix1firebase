@@ -16,12 +16,22 @@ import {
 } from '@/components/ui/sidebar';
 import { CAROUSEL_CATEGORIES } from '@/lib/placeholder-data';
 import { cn } from '@/lib/utils';
+import { useSubscriptionPopup } from '@/hooks/use-subscription-popup';
 
 export function NavigationSidebar() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentCategory = searchParams.get('category');
   const { setOpenMobile, isMobile } = useSidebar();
+  const { setIsOpen } = useSubscriptionPopup();
+
+  const handleSubscriptionClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setIsOpen(true);
+    if (isMobile) {
+      setOpenMobile(false);
+    }
+  };
 
   const handleLinkClick = () => {
     if (isMobile) {
@@ -29,7 +39,6 @@ export function NavigationSidebar() {
     }
   };
   
-  const isSubscriptionPage = pathname === '/subscription';
   const isGalleryPage = pathname === '/gallery';
   const isAuthPage = pathname === '/login' || pathname === '/signup';
   const isPolicyPage = pathname === '/privacy-policy' || pathname === '/terms-of-service';
@@ -46,18 +55,13 @@ export function NavigationSidebar() {
         </SidebarHeader>
         <SidebarMenu>
            <SidebarMenuItem>
-            <Link href="/subscription" onClick={handleLinkClick} className="w-full">
                 <SidebarMenuButton
-                  as="div"
-                  isActive={isSubscriptionPage}
-                  className={cn('justify-start w-full', {
-                      'bg-sidebar-accent text-sidebar-accent-foreground': isSubscriptionPage
-                  })}
+                  onClick={handleSubscriptionClick}
+                  className='justify-start w-full'
                 >
                   <Gem />
                   <span>Assinatura</span>
                 </SidebarMenuButton>
-            </Link>
           </SidebarMenuItem>
            <SidebarMenuItem>
             <Link href="/gallery" onClick={handleLinkClick} className="w-full">

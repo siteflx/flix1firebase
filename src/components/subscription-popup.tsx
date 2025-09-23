@@ -1,30 +1,16 @@
 
 "use client";
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Gem } from 'lucide-react';
+import { useSubscriptionPopup } from '@/hooks/use-subscription-popup';
 
-const POPUP_DELAY = 9000; // 9 segundos
-const SESSION_STORAGE_KEY = 'subscription_popup_shown';
+const externalLink = "https://www.youtube.com/watch?v=fuMYUadwFXM&list=RDTBvN4manm10&index=2";
 
 export function SubscriptionPopup() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const hasBeenShown = sessionStorage.getItem(SESSION_STORAGE_KEY);
-
-    if (!hasBeenShown) {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-        sessionStorage.setItem(SESSION_STORAGE_KEY, 'true');
-      }, POPUP_DELAY);
-
-      return () => clearTimeout(timer);
-    }
-  }, []);
+  const { isOpen, setIsOpen } = useSubscriptionPopup();
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -44,7 +30,7 @@ export function SubscriptionPopup() {
         </div>
         <div className="flex flex-col gap-2">
             <Button size="lg" asChild>
-                <Link href="/subscription">Assinar Agora</Link>
+                <Link href={externalLink} target="_blank" rel="noopener noreferrer">Assinar Agora</Link>
             </Button>
             <Button size="lg" variant="outline" onClick={() => setIsOpen(false)}>
                 Continuar Navegando

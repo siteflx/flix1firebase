@@ -1,4 +1,6 @@
 
+"use client";
+
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -10,6 +12,7 @@ import {
 } from '@/components/ui/carousel';
 import { ChevronRight, Lock } from 'lucide-react';
 import { Button } from './ui/button';
+import { useSubscriptionPopup } from '@/hooks/use-subscription-popup';
 
 const newCreatorImages = [
   'https://storage.googleapis.com/audiossswe/5.1.png',
@@ -29,8 +32,11 @@ const creators = Array.from({ length: 9 }, (_, i) => ({
 const imageHint = "woman fashion";
 
 function CreatorCard({ imageUrl }: { imageUrl: string }) {
+  const { setIsOpen } = useSubscriptionPopup();
+  const externalLink = "https://www.youtube.com/watch?v=fuMYUadwFXM&list=RDTBvN4manm10&index=2";
+  
   return (
-    <Link href="/join" className="block group">
+    <div onClick={() => setIsOpen(true)} className="block group cursor-pointer">
       <div className="relative aspect-[9/14] w-full overflow-hidden rounded-lg bg-muted shadow-lg">
         <Image
           src={imageUrl}
@@ -43,12 +49,12 @@ function CreatorCard({ imageUrl }: { imageUrl: string }) {
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
             <Lock className="h-10 w-10 drop-shadow-lg" />
-            <Button variant="default" className="mt-6">
-                Assinar
+            <Button variant="default" className="mt-6" asChild>
+              <Link href={externalLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>Assinar</Link>
             </Button>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 

@@ -1,14 +1,17 @@
 
+"use client";
+
 import Image from 'next/image';
-import Link from 'next/link';
 import { Button } from './ui/button';
 import { Sparkles } from 'lucide-react';
 import placeholderData from '@/lib/placeholder-images.json';
+import { useSubscriptionPopup } from '@/hooks/use-subscription-popup';
 
 export function PromoBanner() {
   const promoImage = placeholderData.placeholderImages.find(img => img.id === 'promo-banner');
   const imageUrl = promoImage?.imageUrl || 'https://picsum.photos/seed/promo-banner/1200/300';
   const imageHint = promoImage?.imageHint || 'movie collection';
+  const { setIsOpen } = useSubscriptionPopup();
 
   return (
     <section className="w-full">
@@ -28,11 +31,9 @@ export function PromoBanner() {
           <p className="mt-2 max-w-md text-sm md:text-base text-white/90 drop-shadow-md">
             Tenha acesso ilimitado a milhares de títulos. Assine hoje e aproveite uma oferta especial no plano anual.
           </p>
-          <Button asChild size="lg" className="mt-4">
-            <Link href="/subscription">
-              <Sparkles className="mr-2" />
-              Assine Agora
-            </Link>
+          <Button size="lg" className="mt-4" onClick={() => setIsOpen(true)}>
+            <Sparkles className="mr-2" />
+            Assine Agora
           </Button>
         </div>
       </div>

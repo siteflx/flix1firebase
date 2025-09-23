@@ -1,19 +1,23 @@
+
 // src/app/creators/page.tsx
 "use client";
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Lock } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { useSubscriptionPopup } from '@/hooks/use-subscription-popup';
+import Link from 'next/link';
 
 const lockedItems = Array.from({ length: 6 }, (_, i) => ({ id: i + 1 }));
 const imageUrl = 'https://storage.googleapis.com/audiossswe/foto%201.png';
+const externalLink = "https://www.youtube.com/watch?v=fuMYUadwFXM&list=RDTBvN4manm10&index=2";
 
 function LockedContentCard() {
+    const { setIsOpen } = useSubscriptionPopup();
     return (
         <div className="w-full max-w-md">
-            <Link href="/join" className="block group w-full">
+            <div onClick={() => setIsOpen(true)} className="block group w-full cursor-pointer">
                 <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-muted shadow-lg">
                 <Image
                     src={imageUrl}
@@ -32,12 +36,12 @@ function LockedContentCard() {
                     <p className="mt-1 text-sm text-white/90 drop-shadow-md text-center">
                     Desbloqueie este e todo o conteúdo com um de nossos planos.
                     </p>
-                    <Button variant="secondary" className="mt-6">
-                        Ver Planos
+                    <Button variant="secondary" className="mt-6" asChild>
+                        <Link href={externalLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>Ver Planos</Link>
                     </Button>
                 </div>
                 </div>
-            </Link>
+            </div>
         </div>
     )
 }

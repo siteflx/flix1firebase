@@ -12,6 +12,7 @@ import { Suspense } from 'react';
 import { Spinner } from '@/components/ui/spinner';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
+import { SubscriptionPopupProvider } from '@/hooks/use-subscription-popup';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-body' });
 
@@ -63,18 +64,20 @@ export default function RootLayout({
       <body className={`${inter.variable} font-body antialiased bg-background text-foreground`}>
         <AuthProvider>
           <SearchProvider>
-            <SidebarProvider>
-              <div className="flex min-h-screen w-full flex-col">
-                <Header />
-                <div className="flex flex-1">
-                  <Suspense fallback={<div className="flex h-full w-full items-center justify-center"><Spinner className="h-10 w-10" /></div>}>
-                    <NavigationSidebar />
-                    {children}
-                  </Suspense>
+            <SubscriptionPopupProvider>
+              <SidebarProvider>
+                <div className="flex min-h-screen w-full flex-col">
+                  <Header />
+                  <div className="flex flex-1">
+                    <Suspense fallback={<div className="flex h-full w-full items-center justify-center"><Spinner className="h-10 w-10" /></div>}>
+                      <NavigationSidebar />
+                      {children}
+                    </Suspense>
+                  </div>
+                  <Footer />
                 </div>
-                <Footer />
-              </div>
-            </SidebarProvider>
+              </SidebarProvider>
+            </SubscriptionPopupProvider>
           </SearchProvider>
         </AuthProvider>
         <Toaster />
