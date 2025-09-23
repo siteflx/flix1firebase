@@ -1,5 +1,6 @@
-
 // src/app/creators/page.tsx
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -42,18 +43,18 @@ function LockedContentCard() {
 }
 
 export default function CreatorsPage() {
+  const router = useRouter();
+
   return (
     <main className="flex-1 p-4 md:p-8">
        <div className="mb-6">
           <Button
-            asChild
+            onClick={() => router.back()}
             variant="ghost"
             className="pl-1"
           >
-            <Link href="/" className="inline-flex items-center gap-2 text-foreground/80 hover:text-foreground">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Voltar para o Início
-            </Link>
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Voltar para o Início
           </Button>
         </div>
       <div className="mx-auto max-w-7xl">
