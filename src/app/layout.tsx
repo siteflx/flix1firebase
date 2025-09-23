@@ -17,6 +17,12 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-body' });
 export const metadata: Metadata = {
   title: 'Flick Carousel',
   description: 'Uma experiência de navegação de vídeo no estilo Netflix.',
+  viewport: {
+    width: "device-width",
+    initialScale: 1.0,
+    maximumScale: 1.0,
+    userScalable: false,
+  },
 };
 
 export default function RootLayout({
@@ -27,7 +33,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="dark">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-BBVNGL2BHY"
